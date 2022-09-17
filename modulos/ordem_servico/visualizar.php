@@ -10,8 +10,8 @@
     }
 
     // Busca os dados do banco
-    $sql = "SELECT * FROM produto WHERE IDPRO = $id";
-    $produto = retornaDado($sql);
+    $sql = "SELECT * FROM ordemdeservico WHERE IDOS = $id";
+    $ordem_servico = retornaDado($sql);
 ?>
 
 <!DOCTYPE html>
@@ -26,13 +26,14 @@
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
                     
-                    <h1><?= $produto['nomePRO'] ?></h1>
-                    <p>R$ <?= number_format($produto['valorPRO'], 2, ',', '.') ?></p>
-                    <p><?= $produto['descricao'] ?></p>
+                    <h1><?= $ordem_servico['dataOS'] ?></h1>
+                    <p><?= $ordem_servico['horarioOS'] ?></p>
+                    <p>R$ <?= number_format($ordem_servico['valorTotalOS'], 2, ',', '.') ?></p>
+                    <p><?= $ordem_servico['obs'] ?></p>
 
                     <hr>
-                    <a href="editar.php?id=<?= $produto['IDPRO'] ?>" class="btn btn-warning">Editar</a>
-                    <a onclick="return confirm('Deseja realmente apagar o produto?')" href="apagar.php?id=<?= $produto['IDPRO'] ?>" class="btn btn-danger">Apagar</a>
+                    <a href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-warning">Editar</a>
+                    <a onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">Apagar</a>
                 </main>
 
                 <?php include_once path('template/footer.php') ?>

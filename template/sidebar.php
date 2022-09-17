@@ -63,7 +63,7 @@
 
                 <!-- Menu de ordens de serviços  -->
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOrdens" aria-expanded="false" aria-controls="collapseClientes">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-toolbox"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-briefcase"></i></div>
                         Ordens
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -77,7 +77,7 @@
 
                 <!-- Menu de serviços  -->
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseServicos" aria-expanded="false" aria-controls="collapseServicos">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-box-open"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-gears"></i></div>
                         Serviços
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>

@@ -15,8 +15,8 @@
                     <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
                         <form action="salvar.php" method="POST">
                             <div class="mb-3">
-                                <label for="nome">Nome:</label>
-                                <input type="text" name="nome" class="form-control" placeholder="Nome do produto" required>
+                                <label for="nome">Serviço:</label>
+                                <input type="text" name="nome" class="form-control" placeholder="Tipo de serviço" required>
                             </div>
 
                             <div class="mb-3">

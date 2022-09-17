@@ -2,7 +2,7 @@
     include_once '../../config.php';
 
     // Busca os dados do banco
-    $sql = "SELECT * FROM produto";
+    $sql = "SELECT * FROM ordemdeservico";
     $ordens = retornaDados($sql);
 ?>
 
@@ -24,8 +24,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nome</th>
-                                <th>Valor</th>
+                                <th>Data</th>
+                                <th>Hora</th>
+                                <th>Valor Total</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -34,7 +35,7 @@
                                 <tr>
                                     <td><?= $ordem_servico+['IDOS'] ?></td>
                                     <td><?= $ordem_servico+['dataOS'] ?></td>
-                                    <td><?= $ordem_servico+['hararioOS'] ?></td>
+                                    <td><?= $ordem_servico+['horarioOS'] ?></td>
                                     <td><?= $ordem_servico+['valorTotalOS'] ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $ordem_servico+['IDOS'] ?>"><i class="fa-regular fa-eye"></i></a>

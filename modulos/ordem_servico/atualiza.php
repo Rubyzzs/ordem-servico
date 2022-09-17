@@ -3,26 +3,29 @@
     include_once '../../config.php';
 
     // Pega os dados que vieram do formulário
-    $id = $_POST['IDPRO'];
-    $nome = $_POST['nome'];
+    $id = $_POST['IDOS'];
+    $dat = $_POST['dat'];
     $valor = $_POST['valor'];
-    $descricao = $_POST['descricao'];
+    $hora = $_POST['hora'];
+    $obs = $_POST['obs'];
 
     // Cria a sql para armazenar os valores no banco
     $sql = "UPDATE produto 
         SET 
-            nomePRO = :nome, 
-            valorPRO = :valor, 
-            descricao = :descricao
+            dataOS = :dat, 
+            valorTotalOS = :valor, 
+            horarioOS = :hora, 
+            obs = :obs
         WHERE 
-            IDPRO = :id";
+            IDOS = :id";
 
     // Passa os valores para a SQL
     $peparada = $conexaoBanco->prepare($sql);
     $resultado = $peparada->execute([
-        ':nome'  => $nome,
+        ':dat'  => $dat,
         ':valor'  => $valor,
-        ':descricao'  => $descricao,
+        'hora'  => $hora, 
+        ':obs'  => $obs,
         ':id' => $id
     ]);
 

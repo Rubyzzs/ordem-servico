@@ -10,13 +10,13 @@
     }
 
     // Busca os dados do banco
-    $sql = "DELETE FROM cliente WHERE IDCLI = :id";
+    $sql = "DELETE FROM ordemdeservico WHERE IDOS = :id";
     $prepara = $conexaoBanco->prepare($sql);
 
     $prepara->execute([
         ':id' => $id
     ]);
 
-    $msg = "Cliente apagado com sucesso!";
+    $msg = "Ordem de serviço apagada com sucesso!";
     header("Location: index.php?msg=$msg");
 ?>

@@ -10,8 +10,8 @@
     }
 
     // Busca os dados do banco
-    $sql = "SELECT * FROM produto WHERE IDPRO = $id";
-    $produto = retornaDado($sql);
+    $sql = "SELECT * FROM ordemdeservico WHERE IDOS = $id";
+    $ordem_servico = retornaDado($sql);
 ?>
 
 <!DOCTYPE html>
@@ -24,31 +24,33 @@
 
             <div id="layoutSidenav_content">
                 <main class="container">
-                    <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
-                        <form action="atualiza.php" method="POST">
-                            <input type="hidden" name="IDPRO" value="<?= $produto['IDPRO'] ?>">
-                            
-                            <div class="mb-3">
-                                <label for="nome">Nome:</label>
-                                <input type="text" name="nome" class="form-control" placeholder="Nome do produto" value="<?= $produto['nomePRO'] ?>" required>
-                            </div>
+                        <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
+                                <form action="salvar.php" method="POST">
+                                    <div class="mb-3">
+                                        <label for="dat">Data:</label>
+                                        <input type="date" name="dat" class="form-control" value="<?= $ordem_servico['dataOS'] ?>" required>
+                                    </div>
 
-                            <div class="mb-3">
-                                <label for="valor">Valor:</label>
-                                <input type="text" name="valor" class="form-control" step="0.01" placeholder="00,00" value="<?= $produto['valorPRO'] ?>" required>
-                            </div>
+                                    <div class="mb-3">
+                                        <label for="hora">Hora:</label>
+                                        <input type="time" name="hora" class="form-control" value="<?= $ordem_servico['horarioOS'] ?>" required>
+                                    </div>
 
-                            <div class="mb-3">
-                                <label for="descricao">Descrição do produto:</label>
-                                <textarea name="descricao" class="form-control"  rows="5" value="<?= $produto['valorPRO'] ?>" required> </textarea>
-                            </div>
+                                    <div class="mb-3">
+                                        <label for="valor">Valor Total:</label>
+                                        <input type="number" name="valor" class="form-control" placeholder="00.00" step="0.01" value="<?= $ordem_servico['valorTotalOS'] ?>" required>
+                                    </div>
 
-                            <div class="text-end">
-                                <input class="btn btn-success" type="submit" name="submit" value="Salvar">
-                                <a class="btn btn-danger" href="visualizar.php?id=<?= $produto['IDPRO'] ?>">Cancelar</a>
-                            </div>
-                        </form>
-                    </div>
+                                    <div class="mb-3">
+                                        <label for="obs">Observações:</label>
+                                        <textarea name="obs" class="form-control"  rows="5" value="<?= $ordem_servico['obs'] ?>" required></textarea>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <input class="btn btn-primary" type="submit" name="submit" value="Cadastrar">
+                                    </div>
+                                </form>
+                        </div>                           
                 </main>
 
                 <?php include_once path('template/footer.php') ?>

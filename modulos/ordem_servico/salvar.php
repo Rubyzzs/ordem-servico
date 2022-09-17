@@ -3,19 +3,21 @@
     include_once '../../config.php';
 
     // Pega os dados que vieram do formulário
-    $nome = $_POST['nome'];
+    $dat = $_POST['dat'];
+    $hora = $_POST['hora'];
     $valor = $_POST['valor'];
-    $descricao = $_POST['descricao'];
+    $obs = $_POST['obs'];
 
     // Cria a sql para armazenar os valores no banco
-    $sql = "INSERT INTO produto (nomePRO, valorPRO, descricao) VALUES (:nome, :valor, :descricao)";
+    $sql = "INSERT INTO ordemdeservico (dataOS, horarioOS, valorTotalOS, obs) VALUES (:dat, :hora, :valor, :obs)";
 
     // Passa os valores para a SQL
     $peparada = $conexaoBanco->prepare($sql);
     $resultado = $peparada->execute([
-        ':nome'  => $nome,
+        ':dat'  => $dat,
+        ':hora'  => $hora,
         ':valor'  => $valor,
-        ':descricao'  => $descricao,
+        ':obs'  => $obs,
     ]);
 
     // Pega o ID do usuário cadastrado

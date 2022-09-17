@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Set-2022 às 03:39
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.0.13
+-- Tempo de geração: 17-Set-2022 às 18:53
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -120,8 +120,9 @@ CREATE TABLE `itensproduto` (
 CREATE TABLE `ordemdeservico` (
   `IDOS` int(11) NOT NULL,
   `dataOS` date NOT NULL,
-  `horarioOS` bigint(20) NOT NULL,
-  `valorTotaOSl` bigint(20) NOT NULL,
+  `horarioOS` time NOT NULL,
+  `valorTotalOS` bigint(20) NOT NULL,
+  `obs` varchar(300) NOT NULL,
   `IDFUN_FK` int(11) NOT NULL,
   `IDCLI_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -144,7 +145,7 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`IDPRO`, `nomePRO`, `valorPRO`, `descricao`) VALUES
-(1, 'Placa de vídeo', 1000, ' '),
+(1, 'Placa de vídeo', 1000, ' gtx 1060'),
 (2, 'Placa de vídeo', 1000, 'Placa amd 570'),
 (3, 'Placa de mãe', 1500, 'placa da marca azus');
 
@@ -276,7 +277,7 @@ ALTER TABLE `itensproduto`
 -- AUTO_INCREMENT de tabela `ordemdeservico`
 --
 ALTER TABLE `ordemdeservico`
-  MODIFY `IDOS` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDOS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
