@@ -60,6 +60,20 @@
                         <a class="nav-link" href="<?= links('modulos/produtos/index.php') ?>">Lista</a>
                     </nav>
                 </div>
+
+                 <!-- Menu de serviços  -->
+                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseServicos" aria-expanded="false" aria-controls="collapseServicos">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-box-open"></i></div>
+                        Serviços
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+
+                <div class="collapse" id="collapseServicos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="<?= links('modulos/servicos/cadastrar.php') ?>">Novo Serviço</a>
+                        <a class="nav-link" href="<?= links('modulos/servicos/index.php') ?>">Lista</a>
+                    </nav>
+                </div>
             </div>
         </div>
         <div class="sb-sidenav-footer">

@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="telefone">Descrição do Produto:</label>
+                                <label for="descricao">Descrição do Serviço:</label>
                                 <textarea name="descricao" class="form-control"  rows="5" required></textarea>
                             </div>
 
