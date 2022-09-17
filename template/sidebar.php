@@ -4,6 +4,7 @@
             <div class="nav">
                 <div class="sb-sidenav-menu-heading"></div>
 
+                <!-- Menu de cadastro  -->
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Cadastro
@@ -17,7 +18,8 @@
                         <a class="nav-link" href="./login/inserir.php">Usuários</a>
                     </nav>
                 </div>
-
+                
+                <!-- Menu de clientes  -->
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                         Clientes
@@ -31,6 +33,19 @@
                     </nav>
                 </div>
 
+                <!-- Menu de produtos  -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProdutos" aria-expanded="false" aria-controls="collapseClientes">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-box-open"></i></div>
+                        Produtos
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+
+                <div class="collapse" id="collapseProdutos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="<?= links('modulos/produtos/cadastrar.php') ?>">Novo produto</a>
+                        <a class="nav-link" href="<?= links('modulos/produtos/index.php') ?>">Lista</a>
+                    </nav>
+                </div>
             </div>
         </div>
         <div class="sb-sidenav-footer">

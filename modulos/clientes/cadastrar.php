@@ -45,8 +45,8 @@
                             </div> -->
                             
                             <div class="mb-3">
-                                <label for="email">CPF:</label>
-                                <input type="number" class="form-control" name="cpf" placeholder="digite o cpf/cnpj" required>
+                                <label for="cpf">CPF:</label>
+                                <input type="text" class="form-control" name="cpf" placeholder="digite o cpf/cnpj sem ponto" required>
                             </div>
 
                             <div class="text-end">

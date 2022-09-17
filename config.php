@@ -1,5 +1,5 @@
 <?php
-    define('ROOT_PATH', 'http://localhost/ordemservicos/');
+    define('ROOT_PATH', 'http://localhost/ordem-servico/');
     define('ROOT_DIR', __DIR__);
 
     // Include dos arquivos comuns

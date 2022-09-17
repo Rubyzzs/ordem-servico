@@ -10,8 +10,8 @@
     }
 
     // Busca os dados do banco
-    $sql = "SELECT * FROM cliente WHERE IDCLI = $id";
-    $cliente = retornaDado($sql);
+    $sql = "SELECT * FROM produto WHERE IDPRO = $id";
+    $produto = retornaDado($sql);
 ?>
 
 <!DOCTYPE html>
@@ -26,15 +26,13 @@
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
                     
-                    <h1><?= $cliente['nomeCLI'] ?></h1>
-                    <p><?= $cliente['telCLI'] ?></p>
-                    <p><?= $cliente['endCLI'] ?></p>
-                    <p><?= $cliente['emailCLI'] ?></p>
-                    <p><?= $cliente['cpfCLI'] ?></p>
+                    <h1><?= $produto['nomePRO'] ?></h1>
+                    <p>R$ <?= number_format($produto['valorPRO'], 2, ',', '.') ?></p>
+                    <p><?= $produto['descricao'] ?></p>
 
                     <hr>
-                    <a href="editar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-warning">Editar</a>
-                    <a onclick="return confirm('Deseja realmente apagar o cliente?')" href="apagar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-danger">Apagar</a>
+                    <a href="editar.php?id=<?= $produto['IDPRO'] ?>" class="btn btn-warning">Editar</a>
+                    <a onclick="return confirm('Deseja realmente apagar o produto?')" href="apagar.php?id=<?= $produto['IDPRO'] ?>" class="btn btn-danger">Apagar</a>
                 </main>
 
                 <?php include_once path('template/footer.php') ?>

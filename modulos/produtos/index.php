@@ -2,8 +2,8 @@
     include_once '../../config.php';
 
     // Busca os dados do banco
-    $sql = "SELECT * FROM cliente";
-    $clientes = retornaDados($sql);
+    $sql = "SELECT * FROM produto";
+    $prudutos = retornaDados($sql);
 ?>
 
 <!DOCTYPE html>
@@ -18,28 +18,25 @@
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
 
-                    <h1 class="text-center display-3">Lista de Clientes</h1>
+                    <h1 class="text-center display-3">Lista de produtos</h1>
 
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Nome</th>
-                                <th>Telefone</th>
+                                <th>Valor</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($clientes as $cliente){ ?>
+                            <?php foreach($prudutos as $produto){ ?>
                                 <tr>
-                                    <td><?= $cliente['IDCLI'] ?></td>
-                                    <td><?= $cliente['nomeCLI'] ?></td>
-                                    <td><?= $cliente['telCLI'] ?></td>
-                                    <td><?= $cliente['endCLI'] ?></td>
-                                    <td><?= $cliente['emailCLI'] ?></td>
-                                    <td><?= $cliente['cpfCLI'] ?></td>
-                                    
-                                        <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $cliente['IDCLI'] ?>"><i class="fa-regular fa-eye"></i></a>
+                                    <td><?= $produto['IDPRO'] ?></td>
+                                    <td><?= $produto['nomePRO'] ?></td>
+                                    <td><?= $produto['valorPRO'] ?></td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $produto['IDPRO'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>
