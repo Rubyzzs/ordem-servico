@@ -43,7 +43,7 @@
                             
                             <div class="mb-3">
                                 <label for="cnpj">CNPJ:</label>
-                                <input type="number" class="form-control" name="cnpj" placeholder="digite o cpf/cnpj" required>
+                                <input type="text" class="form-control" name="cnpj" placeholder="digite o cpf/cnpj" required>
                             </div>
 
                             <div class="text-end">

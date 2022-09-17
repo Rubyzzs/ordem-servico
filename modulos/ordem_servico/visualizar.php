@@ -10,8 +10,8 @@
     }
 
     // Busca os dados do banco
-    $sql = "SELECT * FROM funcionario WHERE IDFUN = $id";
-    $funcionario = retornaDado($sql);
+    $sql = "SELECT * FROM produto WHERE IDPRO = $id";
+    $produto = retornaDado($sql);
 ?>
 
 <!DOCTYPE html>
@@ -26,14 +26,13 @@
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
                     
-                    <h1><?= $funcionario['nomeFUN'] ?></h1>
-                    <p><?= $funcionario['telFUN'] ?></p>
-                    <p><?= $funcionario['emailFUN'] ?></p>
-                    <p><?= $funcionario['cnpjFUN'] ?></p>
+                    <h1><?= $produto['nomePRO'] ?></h1>
+                    <p>R$ <?= number_format($produto['valorPRO'], 2, ',', '.') ?></p>
+                    <p><?= $produto['descricao'] ?></p>
 
                     <hr>
-                    <a href="editar.php?id=<?= $funcionario['IDFUN'] ?>" class="btn btn-warning">Editar</a>
-                    <a onclick="return confirm('Deseja realmente apagar o funcionário?')" href="apagar.php?id=<?= $funcionario['IDFUN'] ?>" class="btn btn-danger">Apagar</a>
+                    <a href="editar.php?id=<?= $produto['IDPRO'] ?>" class="btn btn-warning">Editar</a>
+                    <a onclick="return confirm('Deseja realmente apagar o produto?')" href="apagar.php?id=<?= $produto['IDPRO'] ?>" class="btn btn-danger">Apagar</a>
                 </main>
 
                 <?php include_once path('template/footer.php') ?>

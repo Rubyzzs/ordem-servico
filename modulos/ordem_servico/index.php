@@ -2,8 +2,8 @@
     include_once '../../config.php';
 
     // Busca os dados do banco
-    $sql = "SELECT * FROM funcionario";
-    $funcionarios = retornaDados($sql);
+    $sql = "SELECT * FROM produto";
+    $ordens = retornaDados($sql);
 ?>
 
 <!DOCTYPE html>
@@ -18,27 +18,26 @@
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
 
-                    <h1 class="text-center display-3">Lista de Funcionários</h1>
+                    <h1 class="text-center display-3">Lista de Ordens</h1>
 
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Nome</th>
-                                <th>Telefone</th>
-                                <th>E-mail</th>
+                                <th>Valor</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($funcionarios as $funcionario){ ?>
+                            <?php foreach($ordens as $ordem_servico){ ?>
                                 <tr>
-                                    <td><?= $funcionario['IDFUN'] ?></td>
-                                    <td><?= $funcionario['nomeFUN'] ?></td>
-                                    <td><?= $funcionario['telFUN'] ?></td>
-                                    <td><?= $funcionario['emailFUN'] ?></td>
+                                    <td><?= $ordem_servico+['IDOS'] ?></td>
+                                    <td><?= $ordem_servico+['dataOS'] ?></td>
+                                    <td><?= $ordem_servico+['hararioOS'] ?></td>
+                                    <td><?= $ordem_servico+['valorTotalOS'] ?></td>
                                     <td>
-                                        <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $funcionario['IDFUN'] ?>"><i class="fa-regular fa-eye"></i></a>
+                                        <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $ordem_servico+['IDOS'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

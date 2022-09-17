@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Ago-2022 às 02:24
+-- Tempo de geração: 17-Set-2022 às 03:39
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -31,13 +31,17 @@ CREATE TABLE `cliente` (
   `IDCLI` int(11) NOT NULL,
   `nomeCLI` varchar(105) NOT NULL,
   `endCLI` varchar(105) NOT NULL,
-  `telCLI` bigint(20) NOT NULL,
+  `telCLI` varchar(20) NOT NULL,
   `emailCLI` varchar(105) NOT NULL,
-  `cpfCLI` bigint(20) NOT NULL,
-  `cnpjCLI` bigint(20) NOT NULL,
-  `InsEstCLI` bigint(20) NOT NULL,
-  `IDFUN_FK` int(11) NOT NULL
+  `cpfCLI` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`IDCLI`, `nomeCLI`, `endCLI`, `telCLI`, `emailCLI`, `cpfCLI`) VALUES
+(1, 'Jonathan Sousa Pires', 'Felipe Garcia Aldana ; 382', '3627-1128', 'jonathan@hotmail.com', '753.698.123-78');
 
 -- --------------------------------------------------------
 
@@ -66,9 +70,16 @@ CREATE TABLE `funcionario` (
   `IDFUN` int(11) NOT NULL,
   `nomeFUN` varchar(105) NOT NULL,
   `emailFUN` varchar(105) NOT NULL,
-  `cnpjFUN` bigint(20) NOT NULL,
-  `telFUN` bigint(20) NOT NULL
+  `cnpjFUN` varchar(25) NOT NULL,
+  `telFUN` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`IDFUN`, `nomeFUN`, `emailFUN`, `cnpjFUN`, `telFUN`) VALUES
+(1, 'Patrícia Pires', 'patricia@hotmail.com', '789.456.954-78', '3745-1520');
 
 -- --------------------------------------------------------
 
@@ -111,11 +122,8 @@ CREATE TABLE `ordemdeservico` (
   `dataOS` date NOT NULL,
   `horarioOS` bigint(20) NOT NULL,
   `valorTotaOSl` bigint(20) NOT NULL,
-  `IDEMP_FK` int(11) NOT NULL,
   `IDFUN_FK` int(11) NOT NULL,
-  `IDCLI_FK` int(11) NOT NULL,
-  `IDIP_FK` int(11) NOT NULL,
-  `IDIS_FK` int(11) NOT NULL
+  `IDCLI_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -127,8 +135,18 @@ CREATE TABLE `ordemdeservico` (
 CREATE TABLE `produto` (
   `IDPRO` int(11) NOT NULL,
   `nomePRO` varchar(105) NOT NULL,
-  `valorPRO` bigint(20) NOT NULL
+  `valorPRO` bigint(20) NOT NULL,
+  `descricao` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`IDPRO`, `nomePRO`, `valorPRO`, `descricao`) VALUES
+(1, 'Placa de vídeo', 1000, ' '),
+(2, 'Placa de vídeo', 1000, 'Placa amd 570'),
+(3, 'Placa de mãe', 1500, 'placa da marca azus');
 
 -- --------------------------------------------------------
 
@@ -163,8 +181,7 @@ CREATE TABLE `usuario` (
 -- Índices para tabela `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`IDCLI`),
-  ADD KEY `IDFUN_FK` (`IDFUN_FK`);
+  ADD PRIMARY KEY (`IDCLI`);
 
 --
 -- Índices para tabela `empresa`
@@ -200,11 +217,8 @@ ALTER TABLE `itensproduto`
 --
 ALTER TABLE `ordemdeservico`
   ADD PRIMARY KEY (`IDOS`),
-  ADD KEY `IDEMP_FK` (`IDEMP_FK`),
   ADD KEY `IDFUN_FK` (`IDFUN_FK`),
-  ADD KEY `IDCLI_FK` (`IDCLI_FK`),
-  ADD KEY `IDIP_FK` (`IDIP_FK`),
-  ADD KEY `IDIS_FK` (`IDIS_FK`);
+  ADD KEY `IDCLI_FK` (`IDCLI_FK`);
 
 --
 -- Índices para tabela `produto`
@@ -232,7 +246,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `empresa`
@@ -244,7 +258,7 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `IDFUN` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDFUN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `itenservico`
@@ -256,7 +270,7 @@ ALTER TABLE `itenservico`
 -- AUTO_INCREMENT de tabela `itensproduto`
 --
 ALTER TABLE `itensproduto`
-  MODIFY `IDIP` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDIP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `ordemdeservico`
@@ -268,7 +282,7 @@ ALTER TABLE `ordemdeservico`
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `IDPRO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDPRO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `servico`
@@ -285,12 +299,6 @@ ALTER TABLE `usuario`
 --
 -- Restrições para despejos de tabelas
 --
-
---
--- Limitadores para a tabela `cliente`
---
-ALTER TABLE `cliente`
-  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`IDFUN_FK`) REFERENCES `funcionario` (`IDFUN`);
 
 --
 -- Limitadores para a tabela `empresa`
@@ -316,11 +324,8 @@ ALTER TABLE `itensproduto`
 -- Limitadores para a tabela `ordemdeservico`
 --
 ALTER TABLE `ordemdeservico`
-  ADD CONSTRAINT `ordemdeservico_ibfk_1` FOREIGN KEY (`IDEMP_FK`) REFERENCES `empresa` (`IDEMP`),
   ADD CONSTRAINT `ordemdeservico_ibfk_2` FOREIGN KEY (`IDFUN_FK`) REFERENCES `funcionario` (`IDFUN`),
-  ADD CONSTRAINT `ordemdeservico_ibfk_3` FOREIGN KEY (`IDCLI_FK`) REFERENCES `cliente` (`IDCLI`),
-  ADD CONSTRAINT `ordemdeservico_ibfk_4` FOREIGN KEY (`IDIP_FK`) REFERENCES `itensproduto` (`IDIP`),
-  ADD CONSTRAINT `ordemdeservico_ibfk_5` FOREIGN KEY (`IDIS_FK`) REFERENCES `itenservico` (`IDIS`);
+  ADD CONSTRAINT `ordemdeservico_ibfk_3` FOREIGN KEY (`IDCLI_FK`) REFERENCES `cliente` (`IDCLI`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

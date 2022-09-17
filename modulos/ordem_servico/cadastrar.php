@@ -15,18 +15,18 @@
                     <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
                         <form action="salvar.php" method="POST">
                             <div class="mb-3">
-                                <label for="nome">Nome:</label>
-                                <input type="text" name="nome" class="form-control" placeholder="Nome do produto" required>
+                                <label for="data">Data:</label>
+                                <input type="date" name="data" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="valor">Valor:</label>
+                                <label for="valor">Valor Total:</label>
                                 <input type="number" name="valor" class="form-control" placeholder="00.00" step="0.01" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="descricao">Descrição do Produto:</label>
-                                <textarea name="descricao" class="form-control"  rows="5" required></textarea>
+                                <label for="obs">Observações:</label>
+                                <textarea name="obs" class="form-control"  rows="5" required></textarea>
                             </div>
 
                             <div class="text-end">

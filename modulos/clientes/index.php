@@ -26,6 +26,7 @@
                                 <th>#</th>
                                 <th>Nome</th>
                                 <th>Telefone</th>
+                                <th>Telefone</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -35,10 +36,8 @@
                                     <td><?= $cliente['IDCLI'] ?></td>
                                     <td><?= $cliente['nomeCLI'] ?></td>
                                     <td><?= $cliente['telCLI'] ?></td>
-                                    <td><?= $cliente['endCLI'] ?></td>
                                     <td><?= $cliente['emailCLI'] ?></td>
-                                    <td><?= $cliente['cpfCLI'] ?></td>
-                                    
+                                    <td>
                                         <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $cliente['IDCLI'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>

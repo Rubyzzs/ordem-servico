@@ -34,7 +34,7 @@
                                 <tr>
                                     <td><?= $produto['IDPRO'] ?></td>
                                     <td><?= $produto['nomePRO'] ?></td>
-                                    <td><?= $produto['valorPRO'] ?></td>
+                                    <td>R$ <?= number_format($produto['valorPRO'], 2, ',', '.') ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $produto['IDPRO'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
