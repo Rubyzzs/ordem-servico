@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Set-2022 às 02:51
+-- Tempo de geração: 24-Ago-2022 às 02:24
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -31,17 +31,13 @@ CREATE TABLE `cliente` (
   `IDCLI` int(11) NOT NULL,
   `nomeCLI` varchar(105) NOT NULL,
   `endCLI` varchar(105) NOT NULL,
-  `telCLI` varchar(20) NOT NULL,
+  `telCLI` bigint(20) NOT NULL,
   `emailCLI` varchar(105) NOT NULL,
-  `cpfCLI` varchar(25) NOT NULL
+  `cpfCLI` bigint(20) NOT NULL,
+  `cnpjCLI` bigint(20) NOT NULL,
+  `InsEstCLI` bigint(20) NOT NULL,
+  `IDFUN_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `cliente`
---
-
-INSERT INTO `cliente` (`IDCLI`, `nomeCLI`, `endCLI`, `telCLI`, `emailCLI`, `cpfCLI`) VALUES
-(1, 'Jonathan Sousa Pires', 'Felipe Garcia Aldana ; 382', '3627-1128', 'jonathan@hotmail.com', '753.698.123-78');
 
 -- --------------------------------------------------------
 
@@ -131,18 +127,8 @@ CREATE TABLE `ordemdeservico` (
 CREATE TABLE `produto` (
   `IDPRO` int(11) NOT NULL,
   `nomePRO` varchar(105) NOT NULL,
-  `valorPRO` bigint(20) NOT NULL,
-  `descricao` text NOT NULL
+  `valorPRO` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `produto`
---
-
-INSERT INTO `produto` (`IDPRO`, `nomePRO`, `valorPRO`, `descricao`) VALUES
-(1, 'Placa de vídeo', 1000, ' '),
-(2, 'Placa de vídeo', 1000, 'Placa amd 570'),
-(3, 'Placa de mãe', 1500, 'placa da marca azus');
 
 -- --------------------------------------------------------
 
@@ -177,7 +163,8 @@ CREATE TABLE `usuario` (
 -- Índices para tabela `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`IDCLI`);
+  ADD PRIMARY KEY (`IDCLI`),
+  ADD KEY `IDFUN_FK` (`IDFUN_FK`);
 
 --
 -- Índices para tabela `empresa`
@@ -245,7 +232,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `empresa`
@@ -281,7 +268,7 @@ ALTER TABLE `ordemdeservico`
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `IDPRO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IDPRO` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `servico`
@@ -298,6 +285,12 @@ ALTER TABLE `usuario`
 --
 -- Restrições para despejos de tabelas
 --
+
+--
+-- Limitadores para a tabela `cliente`
+--
+ALTER TABLE `cliente`
+  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`IDFUN_FK`) REFERENCES `funcionario` (`IDFUN`);
 
 --
 -- Limitadores para a tabela `empresa`
