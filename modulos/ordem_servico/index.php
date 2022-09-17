@@ -26,19 +26,17 @@
                                 <th>#</th>
                                 <th>Data</th>
                                 <th>Hora</th>
-                                <th>Valor Total</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach($ordens as $ordem_servico){ ?>
                                 <tr>
-                                    <td><?= $ordem_servico+['IDOS'] ?></td>
+                                    <td><?= $ordem_servico['IDOS'] ?></td>
                                     <td><?= $ordem_servico+['dataOS'] ?></td>
                                     <td><?= $ordem_servico+['horarioOS'] ?></td>
-                                    <td><?= $ordem_servico+['valorTotalOS'] ?></td>
                                     <td>
-                                        <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $ordem_servico+['IDOS'] ?>"><i class="fa-regular fa-eye"></i></a>
+                                        <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $ordem_servico['IDOS'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

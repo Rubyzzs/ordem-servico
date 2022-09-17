@@ -14,7 +14,6 @@
                 <main class="container">
                     <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
                         <form action="salvar.php" method="POST">
-                        <form action="salvar.php" method="POST">
                                     <div class="mb-3">
                                         <label for="dat">Data:</label>
                                         <input type="date" name="dat" class="form-control"  required>
