@@ -1,5 +1,8 @@
 <?php
     include_once '../../config.php';
+
+    $sql = "SELECT * FROM cliente";
+    $clientes = retornaDados($sql);
 ?>
 
 <!DOCTYPE html>
@@ -14,29 +17,43 @@
                 <main class="container">
                     <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
                         <form action="salvar.php" method="POST">
-                                    <div class="mb-3">
-                                        <label for="dat">Data:</label>
-                                        <input type="date" name="dat" class="form-control"  required>
-                                    </div>
+                            
+                            <div class="mb-3">
+                                <label for="cliente">Cliente:</label>
 
-                                    <div class="mb-3">
-                                        <label for="hora">Hora:</label>
-                                        <input type="time" name="hora" class="form-control"  required>
-                                    </div>
+                                <select class="form-control" name="cliente_id" id="cliente_id">
+                                    <?php
+                                        foreach($clientes as $cliente)
+                                        {
+                                            echo "<option value='{$cliente['IDCLI']}'> {$cliente['nomeCLI']} </option>";
+                                        }
+                                    ?>    
+                                </select>
+                            </div>
 
-                                    <div class="mb-3">
-                                        <label for="valor">Valor Total:</label>
-                                        <input type="number" name="valor" class="form-control" placeholder="00.00" step="0.01"  required>
-                                    </div>
+                            <div class="mb-3">
+                                <label for="dat">Data:</label>
+                                <input type="date" name="dat" class="form-control"  required>
+                            </div>
 
-                                    <div class="mb-3">
-                                        <label for="obs">Observações:</label>
-                                        <textarea name="obs" class="form-control"  rows="5"  required></textarea>
-                                    </div>
+                            <div class="mb-3">
+                                <label for="hora">Hora:</label>
+                                <input type="time" name="hora" class="form-control"  required>
+                            </div>
 
-                                    <div class="text-end">
-                                        <input class="btn btn-primary" type="submit" name="submit" value="Cadastrar">
-                                    </div>
+                            <div class="mb-3">
+                                <label for="valor">Valor Total:</label>
+                                <input type="number" name="valor" class="form-control" placeholder="00.00" step="0.01"  required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="obs">Observações:</label>
+                                <textarea name="obs" class="form-control"  rows="5"  required></textarea>
+                            </div>
+
+                            <div class="text-end">
+                                <input class="btn btn-primary" type="submit" name="submit" value="Cadastrar">
+                            </div>
                         </form>
                     </div>
                 </main>

@@ -10,7 +10,7 @@
     }
 
     // Busca os dados do banco
-    $sql = "SELECT * FROM ordemdeservico WHERE IDOS = $id";
+    $sql = "SELECT * FROM ordemdeservico JOIN cliente ON (cliente.IDCLI = ordemdeservico.cliente_id) WHERE IDOS = $id";
     $ordem_servico = retornaDado($sql);
 ?>
 
@@ -26,6 +26,7 @@
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
                     
+                    <h1><?= $ordem_servico['nomeCLI'] ?></h1>
                     <h1><?= $ordem_servico['dataOS'] ?></h1>
                     <p><?= $ordem_servico['horarioOS'] ?></p>
                     <p>R$ <?= number_format($ordem_servico['valorTotalOS'], 2, ',', '.') ?></p>
