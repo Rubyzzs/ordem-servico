@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Set-2022 às 23:41
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.0.19
+-- Tempo de geração: 24-Set-2022 às 03:39
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bdordemdeservico`
 --
+CREATE DATABASE IF NOT EXISTS `bdordemdeservico` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bdordemdeservico`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `cliente`
 --
 
+DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE `cliente` (
   `IDCLI` int(11) NOT NULL,
   `nomeCLI` varchar(105) NOT NULL,
@@ -41,7 +44,8 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`IDCLI`, `nomeCLI`, `endCLI`, `telCLI`, `emailCLI`, `cpfCLI`) VALUES
-(1, 'Jonathan Sousa Pires', 'Felipe Garcia Aldana ; 382', '3627-1128', 'jonathan@hotmail.com', '753.698.123-78');
+(1, 'Jonathan Sousa Pires', 'Felipe Garcia Aldana ; 382', '3627-1128', 'jonathan@hotmail.com', '753.698.123-79'),
+(2, 'Augusto Liberato', 'Rua Azul, 12', '65463354', 'agusto@gmail.com', '12');
 
 -- --------------------------------------------------------
 
@@ -49,6 +53,7 @@ INSERT INTO `cliente` (`IDCLI`, `nomeCLI`, `endCLI`, `telCLI`, `emailCLI`, `cpfC
 -- Estrutura da tabela `empresa`
 --
 
+DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE `empresa` (
   `IDEMP` int(11) NOT NULL,
   `nomeEMP` varchar(105) NOT NULL,
@@ -66,6 +71,7 @@ CREATE TABLE `empresa` (
 -- Estrutura da tabela `funcionario`
 --
 
+DROP TABLE IF EXISTS `funcionario`;
 CREATE TABLE `funcionario` (
   `IDFUN` int(11) NOT NULL,
   `nomeFUN` varchar(105) NOT NULL,
@@ -88,14 +94,25 @@ INSERT INTO `funcionario` (`IDFUN`, `nomeFUN`, `emailFUN`, `cnpjFUN`, `telFUN`) 
 -- Estrutura da tabela `itenservico`
 --
 
+DROP TABLE IF EXISTS `itenservico`;
 CREATE TABLE `itenservico` (
   `IDIS` int(11) NOT NULL,
-  `qtdeIS` bigint(20) NOT NULL,
-  `valorUnitIS` bigint(20) NOT NULL,
-  `valorTotaLIS` bigint(20) NOT NULL,
+  `qtde` bigint(20) NOT NULL,
+  `valorUnit` bigint(20) NOT NULL,
+  `valorTotal` bigint(20) NOT NULL,
+  `observacao` varchar(255) NOT NULL,
   `IDOS_FK` int(11) NOT NULL,
   `IDSER_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `itenservico`
+--
+
+INSERT INTO `itenservico` (`IDIS`, `qtde`, `valorUnit`, `valorTotal`, `observacao`, `IDOS_FK`, `IDSER_FK`) VALUES
+(1, 10, 10, 0, '101', 3, 1),
+(2, 10, 20, 200, 'sim', 3, 1),
+(3, 1, 250, 250, 'Conserto da maquina x', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -103,6 +120,7 @@ CREATE TABLE `itenservico` (
 -- Estrutura da tabela `itensproduto`
 --
 
+DROP TABLE IF EXISTS `itensproduto`;
 CREATE TABLE `itensproduto` (
   `IDIP` int(11) NOT NULL,
   `QtdeIP` bigint(20) NOT NULL,
@@ -118,11 +136,14 @@ CREATE TABLE `itensproduto` (
 -- Estrutura da tabela `ordemdeservico`
 --
 
+DROP TABLE IF EXISTS `ordemdeservico`;
 CREATE TABLE `ordemdeservico` (
   `IDOS` int(11) NOT NULL,
   `dataOS` date NOT NULL,
   `horarioOS` time NOT NULL,
   `valorTotalOS` bigint(20) NOT NULL,
+  `cliente_id` int(11) NOT NULL,
+  `funcionario_id` int(11) NOT NULL,
   `obs` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -130,9 +151,10 @@ CREATE TABLE `ordemdeservico` (
 -- Extraindo dados da tabela `ordemdeservico`
 --
 
-INSERT INTO `ordemdeservico` (`IDOS`, `dataOS`, `horarioOS`, `valorTotalOS`, `obs`) VALUES
-(3, '2022-09-17', '13:59:00', 350, 'jkhkhkh'),
-(4, '2022-09-17', '13:59:00', 350, 'Reparo na placa mãe');
+INSERT INTO `ordemdeservico` (`IDOS`, `dataOS`, `horarioOS`, `valorTotalOS`, `cliente_id`, `funcionario_id`, `obs`) VALUES
+(3, '2022-09-17', '13:59:00', 350, 2, 0, 'jkhkhkh'),
+(4, '2022-09-17', '13:59:00', 350, 1, 0, 'Reparo na placa mãe'),
+(5, '2022-09-10', '15:00:00', 250, 2, 0, 'T4s');
 
 -- --------------------------------------------------------
 
@@ -140,6 +162,7 @@ INSERT INTO `ordemdeservico` (`IDOS`, `dataOS`, `horarioOS`, `valorTotalOS`, `ob
 -- Estrutura da tabela `produto`
 --
 
+DROP TABLE IF EXISTS `produto`;
 CREATE TABLE `produto` (
   `IDPRO` int(11) NOT NULL,
   `nomePRO` varchar(105) NOT NULL,
@@ -162,11 +185,20 @@ INSERT INTO `produto` (`IDPRO`, `nomePRO`, `valorPRO`, `descricao`) VALUES
 -- Estrutura da tabela `servico`
 --
 
+DROP TABLE IF EXISTS `servico`;
 CREATE TABLE `servico` (
   `IDSER` int(11) NOT NULL,
-  `descSER` varchar(105) NOT NULL,
-  `valorSER` bigint(20) NOT NULL
+  `nome` varchar(255) NOT NULL,
+  `descricao` varchar(105) NOT NULL,
+  `valor` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `servico`
+--
+
+INSERT INTO `servico` (`IDSER`, `nome`, `descricao`, `valor`) VALUES
+(1, 'Manutenção', 'SIM', '50.00');
 
 -- --------------------------------------------------------
 
@@ -174,6 +206,7 @@ CREATE TABLE `servico` (
 -- Estrutura da tabela `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nome` varchar(105) NOT NULL,
@@ -252,7 +285,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `empresa`
@@ -270,7 +303,7 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT de tabela `itenservico`
 --
 ALTER TABLE `itenservico`
-  MODIFY `IDIS` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDIS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `itensproduto`
@@ -282,7 +315,7 @@ ALTER TABLE `itensproduto`
 -- AUTO_INCREMENT de tabela `ordemdeservico`
 --
 ALTER TABLE `ordemdeservico`
-  MODIFY `IDOS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `IDOS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
@@ -294,7 +327,7 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT de tabela `servico`
 --
 ALTER TABLE `servico`
-  MODIFY `IDSER` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDSER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
