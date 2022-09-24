@@ -3,23 +3,23 @@
     include_once '../../config.php';
 
     // Pega os dados que vieram do formulário
-    $nome = $_POST['nome'];
-    $endereco = $_POST['endereco'];
-    $telefone = $_POST['telefone'];
-    $email = $_POST['email'];
-    $cpf = $_POST['cpf'];
+    $nomeCLI = $_POST['nomeCLI'];
+    $endCLI = $_POST['endCLI'];
+    $telCLI = $_POST['telCLI'];
+    $emailCLI = $_POST['emailCLI'];
+    $cpfCLI = $_POST['cpfCLI'];
 
     // Cria a sql para armazenar os valores no banco
-    $sql = "INSERT INTO cliente (nomeCLI, endCLI, telCLI, emailCLI, cpfCLI) VALUES (:nome, :endereco, :telefone, :email, :cpf)";
+    $sql = "INSERT INTO cliente (nomeCLI, endCLI, telCLI, emailCLICLI, cpfCLICLI) VALUES (:nomeCLI, :endCLI, :telCLI, :emailCLI, :cpfCLI)";
 
     // Passa os valores para a SQL
     $peparada = $conexaoBanco->prepare($sql);
     $resultado = $peparada->execute([
-        ':nome'  => $nome,
-        ':endereco'  => $endereco,
-        ':telefone'  => $telefone,
-        ':email'  => $email,
-        ':cpf'  => $cpf
+        ':nomeCLI'  => $nomeCLI,
+        ':endCLI'  => $endCLI,
+        ':telCLI'  => $telCLI,
+        ':emailCLI'  => $emailCLI,
+        ':cpfCLI'  => $cpf
     ]);
 
     // Pega o ID do usuário cadastrado

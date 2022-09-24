@@ -33,8 +33,8 @@
                             <?php foreach($ordens as $ordem_servico){ ?>
                                 <tr>
                                     <td><?= $ordem_servico['IDOS'] ?></td>
-                                    <td><?= $ordem_servico+['dataOS'] ?></td>
-                                    <td><?= $ordem_servico+['horarioOS'] ?></td>
+                                    <td><?= $ordem_servico['dataOS'] ?></td>
+                                    <td><?= $ordem_servico['horarioOS'] ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $ordem_servico['IDOS'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
