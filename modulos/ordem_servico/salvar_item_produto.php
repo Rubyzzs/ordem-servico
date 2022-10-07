@@ -29,6 +29,7 @@
         ':IDPRO_FK' => $IDPRO_FK
     ]);
 
+    
     // Pega o ID do usuário cadastrado
     $id = $conexaoBanco->lastInsertId();
 

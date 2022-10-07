@@ -39,3 +39,4 @@
         // Deu errado
         header('Location: cadastrar.php');
     }
+    
