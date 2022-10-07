@@ -29,3 +29,5 @@
     // Cliente cadastrado com sucessso
     $msg = "Produto atualizado com sucesso";
     header("Location: visualizar.php?id=$id&msg=$msg");
+
+    
