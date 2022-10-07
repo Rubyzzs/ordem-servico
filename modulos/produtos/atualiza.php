@@ -11,8 +11,8 @@
     // Cria a sql para armazenar os valores no banco
     $sql = "UPDATE produto 
         SET 
-            nomePRO = :nome, 
-            valorPRO = :valor, 
+            nome = :nome, 
+            valor = :valor, 
             descricao = :descricao
         WHERE 
             IDPRO = :id";

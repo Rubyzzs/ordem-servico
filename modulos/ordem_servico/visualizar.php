@@ -36,7 +36,8 @@
                     <p><?= $ordem_servico['obs'] ?></p>
 
                     <!-- Formulário para adicionar serviço -->
-                    <form action="salvar_item.php" method="POST" class="border p-2 my-3">
+
+                    <form action="salvar_item_servico.php" method="POST" class="border p-2 my-3">
                         <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
                         
                         <div class="mb-3">
@@ -75,7 +76,7 @@
                     
 
                     <?php
-                        $sql = "SELECT * FROM itenservico JOIN servico ON (itenservico.IDSER_FK = servico.IDSER) WHERE IDOS_FK = {$ordem_servico['IDOS']}";
+                        $sql = "SELECT * FROM itemservico JOIN servico ON (itemservico.IDSER_FK = servico.IDSER) WHERE IDOS_FK = {$ordem_servico['IDOS']}";
                         $servicos = retornaDados($sql);
                     ?>
                     
@@ -103,6 +104,7 @@
                                 <?php } ?>
                         </tbody>
                     </table>
+
 
                     <hr>
                     <a href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-warning">Editar</a>

@@ -26,8 +26,8 @@
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
                     
-                    <h1><?= $produto['nomePRO'] ?></h1>
-                    <p>R$ <?= number_format($produto['valorPRO'], 2, ',', '.') ?></p>
+                    <h1><?= $produto['nome'] ?></h1>
+                    <p>R$ <?= number_format($produto['valor'], 2, ',', '.') ?></p>
                     <p><?= $produto['descricao'] ?></p>
 
                     <hr>

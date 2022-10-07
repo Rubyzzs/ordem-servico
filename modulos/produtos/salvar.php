@@ -8,7 +8,7 @@
     $descricao = $_POST['descricao'];
 
     // Cria a sql para armazenar os valores no banco
-    $sql = "INSERT INTO produto (nomePRO, valorPRO, descricao) VALUES (:nome, :valor, :descricao)";
+    $sql = "INSERT INTO produto (nome, valor, descricao) VALUES (:nome, :valor, :descricao)";
 
     // Passa os valores para a SQL
     $peparada = $conexaoBanco->prepare($sql);

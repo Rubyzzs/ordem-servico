@@ -33,8 +33,8 @@
                             <?php foreach($prudutos as $produto){ ?>
                                 <tr>
                                     <td><?= $produto['IDPRO'] ?></td>
-                                    <td><?= $produto['nomePRO'] ?></td>
-                                    <td>R$ <?= number_format($produto['valorPRO'], 2, ',', '.') ?></td>
+                                    <td><?= $produto['nome'] ?></td>
+                                    <td>R$ <?= number_format($produto['valor'], 2, ',', '.') ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $produto['IDPRO'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>

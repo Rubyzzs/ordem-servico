@@ -30,17 +30,17 @@
                             
                             <div class="mb-3">
                                 <label for="nome">Nome:</label>
-                                <input type="text" name="nome" class="form-control" placeholder="Nome do produto" value="<?= $produto['nomePRO'] ?>" required>
+                                <input type="text" name="nome" class="form-control" placeholder="Nome do produto" value="<?= $produto['nome'] ?>" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="valor">Valor:</label>
-                                <input type="text" name="valor" class="form-control" step="0.01" placeholder="00,00" value="<?= $produto['valorPRO'] ?>" required>
+                                <input type="text" name="valor" class="form-control" step="0.01" placeholder="00,00" value="<?= $produto['valor'] ?>" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="descricao">Descrição do produto:</label>
-                                <textarea name="descricao" class="form-control"  rows="5" value="<?= $produto['valorPRO'] ?>" required> </textarea>
+                                <textarea name="descricao" class="form-control"  rows="5" value="<?= $produto['valor'] ?>" required> </textarea>
                             </div>
 
                             <div class="text-end">
