@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Out-2022 às 16:09
--- Versão do servidor: 10.4.25-MariaDB
--- versão do PHP: 8.1.10
+-- Tempo de geração: 08-Out-2022 às 03:04
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bdordemdeservico`
 --
-CREATE DATABASE IF NOT EXISTS `bdordemdeservico` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `bdordemdeservico`;
 
 -- --------------------------------------------------------
 
@@ -29,7 +27,6 @@ USE `bdordemdeservico`;
 -- Estrutura da tabela `cliente`
 --
 
-DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE `cliente` (
   `IDCLI` int(11) NOT NULL,
   `nomeCLI` varchar(105) NOT NULL,
@@ -52,7 +49,6 @@ INSERT INTO `cliente` (`IDCLI`, `nomeCLI`, `endCLI`, `telCLI`, `emailCLI`, `cpfC
 -- Estrutura da tabela `empresa`
 --
 
-DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE `empresa` (
   `IDEMP` int(11) NOT NULL,
   `nomeEMP` varchar(105) NOT NULL,
@@ -70,7 +66,6 @@ CREATE TABLE `empresa` (
 -- Estrutura da tabela `funcionario`
 --
 
-DROP TABLE IF EXISTS `funcionario`;
 CREATE TABLE `funcionario` (
   `IDFUN` int(11) NOT NULL,
   `nomeFUN` varchar(105) NOT NULL,
@@ -93,7 +88,6 @@ INSERT INTO `funcionario` (`IDFUN`, `nomeFUN`, `emailFUN`, `cnpjFUN`, `telFUN`) 
 -- Estrutura da tabela `itemproduto`
 --
 
-DROP TABLE IF EXISTS `itemproduto`;
 CREATE TABLE `itemproduto` (
   `IDIP` int(11) NOT NULL,
   `qtde` bigint(20) NOT NULL,
@@ -110,7 +104,6 @@ CREATE TABLE `itemproduto` (
 -- Estrutura da tabela `itemservico`
 --
 
-DROP TABLE IF EXISTS `itemservico`;
 CREATE TABLE `itemservico` (
   `IDIS` int(11) NOT NULL,
   `qtde` bigint(20) NOT NULL,
@@ -136,7 +129,6 @@ INSERT INTO `itemservico` (`IDIS`, `qtde`, `valorUnit`, `valorTotal`, `observaca
 -- Estrutura da tabela `ordemdeservico`
 --
 
-DROP TABLE IF EXISTS `ordemdeservico`;
 CREATE TABLE `ordemdeservico` (
   `IDOS` int(11) NOT NULL,
   `nomeCLI` varchar(225) NOT NULL,
@@ -153,9 +145,11 @@ CREATE TABLE `ordemdeservico` (
 --
 
 INSERT INTO `ordemdeservico` (`IDOS`, `nomeCLI`, `dataOS`, `horarioOS`, `valorTotalOS`, `cliente_id`, `funcionario_id`, `obs`) VALUES
-(3, '', '2022-09-17', '13:59:00', 350, 2, 0, 'jkhkhkh'),
+(3, '', '2022-09-17', '13:59:00', 350, 1, 0, 'jkhkhkh'),
 (4, '', '2022-09-17', '13:59:00', 350, 1, 0, 'Reparo na placa mãe'),
-(5, '', '2022-09-10', '15:00:00', 250, 2, 0, 'T4s');
+(5, '', '2022-09-10', '15:00:00', 250, 2, 0, 'T4s'),
+(6, '', '2022-10-12', '11:00:00', 1000, 1, 2, 'TEste'),
+(7, '', '2022-10-12', '11:00:00', 1000, 1, 1, 'TEste');
 
 -- --------------------------------------------------------
 
@@ -163,7 +157,6 @@ INSERT INTO `ordemdeservico` (`IDOS`, `nomeCLI`, `dataOS`, `horarioOS`, `valorTo
 -- Estrutura da tabela `produto`
 --
 
-DROP TABLE IF EXISTS `produto`;
 CREATE TABLE `produto` (
   `IDPRO` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
@@ -186,7 +179,6 @@ INSERT INTO `produto` (`IDPRO`, `nome`, `valor`, `descricao`) VALUES
 -- Estrutura da tabela `servico`
 --
 
-DROP TABLE IF EXISTS `servico`;
 CREATE TABLE `servico` (
   `IDSER` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
@@ -207,13 +199,21 @@ INSERT INTO `servico` (`IDSER`, `nome`, `descricao`, `valor`) VALUES
 -- Estrutura da tabela `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
-  `nome` varchar(105) NOT NULL,
   `email` varchar(105) NOT NULL,
-  `telefone` bigint(20) NOT NULL
+  `senha` varchar(10) NOT NULL,
+  `tipo_usuario` varchar(20) NOT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `email`, `senha`, `tipo_usuario`, `id_usuario`) VALUES
+(1, 'jonatha@email.com', '123123123', 'cliente', 1),
+(2, 'lucas@email.com', '123123123', 'funcionario', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -316,7 +316,7 @@ ALTER TABLE `itemservico`
 -- AUTO_INCREMENT de tabela `ordemdeservico`
 --
 ALTER TABLE `ordemdeservico`
-  MODIFY `IDOS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IDOS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
@@ -334,7 +334,7 @@ ALTER TABLE `servico`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para despejos de tabelas
