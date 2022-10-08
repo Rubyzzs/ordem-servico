@@ -33,6 +33,10 @@
                                 <label for="email">Email:</label>
                                 <input type="email" name="email" class="form-control" placeholder="xxxxx@xxxx" required>
                             </div>
+                            <div class="mb-3">
+                                <label for="senha">Senha:</label>
+                                <input type="password" name="senha" class="form-control" required>
+                            </div>
 
                             <!-- <div class="form-check form-check-inline">
                                 <input type="radio" class="form-check-input" name="cpf" value="CPF">
