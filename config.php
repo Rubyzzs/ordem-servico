@@ -3,7 +3,9 @@
     define('ROOT_DIR', __DIR__);
 
     // Include dos arquivos comuns
+    session_start();
     include_once path('funcoes/conexao.php');
+    include_once path('funcoes/autenticacao.php');
 
     // session_start();
     // if (empty($_SESSION['usuario'])) {
@@ -25,11 +27,26 @@
     function usuario()
     {
         // Retorna o usuário logado;
-        
-        $id = $_SESSION['usuario'];
+        $id = $_SESSION['id'];
 
         $sql = "SELECT * FROM usuario WHERE id = $id";
-        $query = $GLOBALS['conexaoBanco']->query($sql);
+        $usuario = retornaDado($sql);
 
-        return $query->fetch();
+        return $usuario;
+    }
+
+    function pessoa()
+    {
+        $usuario = usuario();
+
+        if($usuario['tipo_usuario'] == 'cliente')
+        {
+            $sql = "SELECT * FROM cliente WHERE IDCLI = {$usuario['id_usuario']}";
+            return retornaDado($sql);
+        }else if($usuario['tipo_usuario'] == 'funcionario'){
+            $sql = "SELECT * FROM funcionario WHERE IDFUN = {$usuario['id_usuario']}";
+            return retornaDado($sql);
+        }else{
+            return [];
+        }
     }

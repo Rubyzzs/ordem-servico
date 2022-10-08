@@ -55,8 +55,14 @@
 
                 <div class="collapse" id="collapseOrdens" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= links('modulos/ordem_servico/cadastrar.php') ?>">Abrir Ordem de Serviço</a>
-                        <a class="nav-link" href="<?= links('modulos/ordem_servico/index.php') ?>">Lista</a>
+                        <?php if(podeMostrar(['funcionario'])){ ?>
+                            <a class="nav-link" href="<?= links('modulos/ordem_servico/cadastrar.php') ?>">Abrir Ordem de Serviço</a>
+                            <a class="nav-link" href="<?= links('modulos/ordem_servico/index.php') ?>">Lista</a>
+                        <?php } ?>
+
+                        <?php if(podeMostrar(['cliente'])){ ?>
+                            <a class="nav-link" href="<?= links('modulos/ordem_servico/minhas_ordens.php') ?>">Meus Pedidos</a>
+                        <?php } ?>
                     </nav>
                 </div>
 
@@ -76,7 +82,7 @@
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Logado como:</div>
+            <div class="small">Logado como: <?= pessoa()[1] ?></div>
         </div>
     </nav>
 </div>

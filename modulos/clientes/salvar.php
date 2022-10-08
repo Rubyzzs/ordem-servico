@@ -22,6 +22,8 @@
         ':cpfCLI'  => $cpf
     ]);
 
+    // CRIAR O USUARIO ASSOCIADO A ESTE CLIENTE
+
     // Pega o ID do usuário cadastrado
     $id = $conexaoBanco->lastInsertId();
 

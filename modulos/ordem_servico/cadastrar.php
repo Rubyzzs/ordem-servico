@@ -1,6 +1,8 @@
 <?php
     include_once '../../config.php';
 
+    verificaAcesso(['funcionario', 'administrador']);
+
     $sql = "SELECT * FROM cliente";
     $clientes = retornaDados($sql);
 ?>

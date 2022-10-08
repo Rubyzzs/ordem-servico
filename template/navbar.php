@@ -18,7 +18,7 @@
                 <li><a class="dropdown-item" href="#!">Settings</a></li>
                 <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="./login/sair.php">Sair</a></li>
+                <li><a class="dropdown-item" href="<?= links('modulos/autenticacao/sair.php') ?>">Sair</a></li>
             </ul>
         </li>
     </ul>

@@ -1,5 +1,6 @@
 <?php
     include_once 'config.php';
+    verificaAcesso(['cliente', 'funcionario']);
 ?>
 
 <!DOCTYPE html>
