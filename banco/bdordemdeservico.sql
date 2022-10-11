@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Out-2022 às 03:04
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.0.13
+-- Tempo de geração: 11-Out-2022 às 04:50
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -79,8 +79,8 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`IDFUN`, `nomeFUN`, `emailFUN`, `cnpjFUN`, `telFUN`) VALUES
-(1, 'Patrícia Pires', 'patricia@hotmail.com', '789.456.954-78', '3745-1520'),
-(2, 'Carol', 'carol@hotmail.com', '745.985.123-12', '3254-7895');
+(2, 'Carol', 'carol@hotmail.com', '745.985.123-12', '3254-7895'),
+(13, 'Eu', 'adm@adm.com', '1278945698', '1234566');
 
 -- --------------------------------------------------------
 
@@ -145,11 +145,11 @@ CREATE TABLE `ordemdeservico` (
 --
 
 INSERT INTO `ordemdeservico` (`IDOS`, `nomeCLI`, `dataOS`, `horarioOS`, `valorTotalOS`, `cliente_id`, `funcionario_id`, `obs`) VALUES
-(3, '', '2022-09-17', '13:59:00', 350, 1, 0, 'jkhkhkh'),
-(4, '', '2022-09-17', '13:59:00', 350, 1, 0, 'Reparo na placa mãe'),
-(5, '', '2022-09-10', '15:00:00', 250, 2, 0, 'T4s'),
+(3, '', '2022-09-17', '13:59:00', 350, 1, 2, 'jkhkhkh'),
+(4, '', '2022-09-17', '13:59:00', 350, 1, 2, 'Reparo na placa mãe'),
+(5, '', '2022-09-10', '15:00:00', 250, 2, 2, 'T4s'),
 (6, '', '2022-10-12', '11:00:00', 1000, 1, 2, 'TEste'),
-(7, '', '2022-10-12', '11:00:00', 1000, 1, 1, 'TEste');
+(7, '', '2022-10-12', '11:00:00', 1000, 1, 2, 'TEste');
 
 -- --------------------------------------------------------
 
@@ -213,7 +213,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `email`, `senha`, `tipo_usuario`, `id_usuario`) VALUES
 (1, 'jonatha@email.com', '123123123', 'cliente', 1),
-(2, 'lucas@email.com', '123123123', 'funcionario', 1);
+(2, 'lucas@email.com', '123123123', 'funcionario', 1),
+(4, 'adm@adm.com', '123', 'funcionario', 13);
 
 --
 -- Índices para tabelas despejadas
@@ -286,7 +287,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `empresa`
@@ -298,7 +299,7 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `IDFUN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IDFUN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `itemproduto`
@@ -334,7 +335,7 @@ ALTER TABLE `servico`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para despejos de tabelas

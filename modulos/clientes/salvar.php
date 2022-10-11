@@ -3,38 +3,39 @@
     include_once '../../config.php';
 
     // Pega os dados que vieram do formulário
-    $nomeCLI = $_POST['nome'];
-    $endCLI = $_POST['endereco'];
-    $telCLI = $_POST['telefone'];
-    $emailCLI = $_POST['email'];
+    $nome = $_POST['nome'];
+    $endereco = $_POST['endereco'];
+    $tel = $_POST['telefone'];
+    $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $cpfCLI = $_POST['cpf'];
+    $cpf = $_POST['cpf'];
 
     // Cria a sql para armazenar os valores no banco
-    $sql = "INSERT INTO cliente (nomeCLI, endCLI, telCLI, emailCLI, cpfCLI) VALUES (:nomeCLI, :endCLI, :telCLI, :emailCLI, :cpfCLI)";
+    $sql = "INSERT INTO cliente (nomeCLI, endCLI, telCLI, emailCLI, cpfCLI) VALUES (:nome, :endereco, :tel, :email, :cpf)";
 
     // Passa os valores para a SQL
     $peparada = $conexaoBanco->prepare($sql);
     $resultado = $peparada->execute([
-        ':nomeCLI'  => $nomeCLI,
-        ':endCLI'  => $endCLI,
-        ':telCLI'  => $telCLI,
-        ':emailCLI'  => $emailCLI,
-        ':cpfCLI'  => $cpfCLI
+        ':nome'  => $nome,
+        ':endereco'  => $endereco,
+        ':tel'  => $tel,
+        ':email'  => $email,
+        ':cpf'  => $cpf
     ]);
 
     // Pega o ID do usuário cadastrado
     $id = $conexaoBanco->lastInsertId();
 
     // CRIART O USUARIO ASSOCIADO A ESTE CLIENTE colocar tipo usuario
-    $sql = "INSERT INTO usuario (email, senha, id_usuario) VALUES (:email, :senha, :id_usuario)";
+    $sql = "INSERT INTO usuario (email, senha, id_usuario, tipo_usuario) VALUES (:email, :senha, :id_usuario, :tipo_usuario)";
 
     // Passa os valores para a SQL
     $peparada = $conexaoBanco->prepare($sql);
     $resultado = $peparada->execute([
         ':email'  => $emailCLI,
         ':senha'  => $senha,
-        ':id_usuario' => $id
+        ':id_usuario' => $id,
+        ':tipo_usuario' => $id
     ]);
 
 

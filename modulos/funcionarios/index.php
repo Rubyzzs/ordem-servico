@@ -20,7 +20,7 @@
 
                     <h1 class="text-center display-3">Lista de Funcionários</h1>
 
-                    <table class="table">
+                    <table class="table table-dark table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -38,7 +38,7 @@
                                     <td><?= $funcionario['telFUN'] ?></td>
                                     <td><?= $funcionario['emailFUN'] ?></td>
                                     <td>
-                                        <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $funcionario['IDFUN'] ?>"><i class="fa-regular fa-eye"></i></a>
+                                        <a class="btn btn-secondary btn-sm" href="visualizar.php?id=<?= $funcionario['IDFUN'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

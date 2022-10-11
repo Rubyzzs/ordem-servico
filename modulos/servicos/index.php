@@ -20,7 +20,7 @@
 
                     <h1 class="text-center display-3">Lista de servicos</h1>
 
-                    <table class="table">
+                    <table class="table table-dark table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -36,7 +36,7 @@
                                     <td><?= $servico['nome'] ?></td>
                                     <td><?= $servico['valor'] ?></td>
                                     <td>
-                                        <a class="btn btn-primary btn-sm" href="visualizar.php?id=<?= $servico['IDSER'] ?>"><i class="fa-regular fa-eye"></i></a>
+                                        <a class="btn btn-secondary btn-sm" href="visualizar.php?id=<?= $servico['IDSER'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

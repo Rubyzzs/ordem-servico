@@ -5,30 +5,37 @@
                 <div class="sb-sidenav-menu-heading"></div>
                 
                 <!-- Menu de clientes  -->
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                         Clientes
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-
-                <div class="collapse" id="collapseClientes" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= links('modulos/clientes/cadastrar.php') ?>">Novo Cliente</a>
-                        <a class="nav-link" href="<?= links('modulos/clientes/index.php') ?>">Lista</a>
-                    </nav>
-                </div>
-                <!-- menu de funcionario -->
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseFuncionario" aria-expanded="false" aria-controls="collapseClientes">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-user-gear"></i></div>
-                        Funcionários
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+            
+                    <div class="collapse" id="collapseClientes" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav"> 
+                            <?php if(podeMostrar(['funcionario'])){ ?>
+                                <a class="nav-link" href="<?= links('modulos/clientes/cadastrar.php') ?>">Novo Cliente</a>
+                                <a class="nav-link" href="<?= links('modulos/clientes/index.php') ?>">Lista</a>
+                            <?php } ?>
+                        </nav>
+                    </div>
+                        <!-- menu de funcionario -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseFuncionario" aria-expanded="false" aria-controls="collapseClientes">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user-gear"></i></div>
+                            Funcionários
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        
                 <div class="collapse" id="collapseFuncionario" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= links('modulos/funcionarios/cadastrar.php') ?>">Novo Funcionários</a>
-                        <a class="nav-link" href="<?= links('modulos/funcionarios/index.php') ?>">Lista</a>
-                    </nav>
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <?php if(podeMostrar(['funcionario'])){ ?>
+                                <a class="nav-link" href="<?= links('modulos/funcionarios/cadastrar.php') ?>">Novo Funcionários</a>
+                                <a class="nav-link" href="<?= links('modulos/funcionarios/index.php') ?>">Lista</a>
+                            <?php } ?>
+                            <?php if(podeMostrar(['cliente'])){ ?>
+                               <a class="nav-link" href="<?= links('modulos/funcionarios/visualizar.php') ?>">Contatos</a>
+                            <?php } ?>
+                        </nav>
                 </div>
 
 
@@ -41,8 +48,10 @@
 
                 <div class="collapse" id="collapseProdutos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= links('modulos/produtos/cadastrar.php') ?>">Novo produto</a>
-                        <a class="nav-link" href="<?= links('modulos/produtos/index.php') ?>">Lista</a>
+                        <?php if(podeMostrar(['funcionario'])){ ?>
+                            <a class="nav-link" href="<?= links('modulos/produtos/cadastrar.php') ?>">Novo produto</a>
+                            <a class="nav-link" href="<?= links('modulos/produtos/index.php') ?>">Lista</a>
+                        <?php } ?>
                     </nav>
                 </div>
 
@@ -75,8 +84,10 @@
 
                 <div class="collapse" id="collapseServicos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= links('modulos/servicos/cadastrar.php') ?>">Novo Serviço</a>
-                        <a class="nav-link" href="<?= links('modulos/servicos/index.php') ?>">Lista</a>
+                        <?php if(podeMostrar(['funcionario'])){ ?>
+                            <a class="nav-link" href="<?= links('modulos/servicos/cadastrar.php') ?>">Novo Serviço</a>
+                            <a class="nav-link" href="<?= links('modulos/servicos/index.php') ?>">Lista</a>
+                        <?php } ?>
                     </nav>
                 </div>
             </div>

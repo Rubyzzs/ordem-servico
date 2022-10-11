@@ -1,5 +1,10 @@
 <?php
     include_once '../../config.php';
+
+    verificaAcesso(['funcionario', 'administrador']);
+
+    $sql = "SELECT * FROM cliente";
+    $clientes = retornaDados($sql);
 ?>
 
 <!DOCTYPE html>
@@ -25,27 +30,21 @@
                                 <input type="text" name="telefone" class="form-control" placeholder="Ex. (xx)123445678" required>
                             </div>
 
+                            
+                            <div class="mb-3">
+                                <label for="cnpj">CPF/CNPJ:</label>
+                                <input type="text" class="form-control" name="cnpj" placeholder="digite o cpf/cnpj" required>
+                            </div>
+                            
                             <div class="mb-3">
                                 <label for="email">Email:</label>
                                 <input type="email" name="email" class="form-control" placeholder="xxxxx@xxxx" required>
                             </div>
 
-
-                            <!-- <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input" name="cpf" value="CPF">
-                                <label for="cpf" class="form-check-label">CPF</label>
-                            </div>
-
-                            <div class="form-check form-check-inline mb-2">
-                                <input type="radio" class="form-check-input" name="cpf" value="cnpj">
-                                <label for="cnpj" class="form-check-label">CNPJ</label><br>
-                            </div> -->
-                            
                             <div class="mb-3">
-                                <label for="cnpj">CNPJ:</label>
-                                <input type="text" class="form-control" name="cnpj" placeholder="digite o cpf/cnpj" required>
+                                <label for="senha">Senha:</label>
+                                <input type="password" name="senha" class="form-control" required>
                             </div>
-
                             <div class="text-end">
                                 <input class="btn btn-primary" type="submit" name="submit" value="Cadastrar">
                             </div>

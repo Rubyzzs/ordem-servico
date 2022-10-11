@@ -32,8 +32,15 @@
                     <p><?= $funcionario['cnpjFUN'] ?></p>
 
                     <hr>
-                    <a href="editar.php?id=<?= $funcionario['IDFUN'] ?>" class="btn btn-warning">Editar</a>
-                    <a onclick="return confirm('Deseja realmente apagar o funcionário?')" href="apagar.php?id=<?= $funcionario['IDFUN'] ?>" class="btn btn-danger">Apagar</a>
+                    <a <?php if(podeMostrar(['funcionario'])){ ?>
+                        href="editar.php?id=<?= $funcionario['IDFUN'] ?>" class="btn btn-warning">Editar
+                    </a>
+                        <?php } ?>
+                        
+                    <a <?php if(podeMostrar(['funcionario'])){ ?>
+                        onclick="return confirm('Deseja realmente apagar o funcionário?')" href="apagar.php?id=<?= $funcionario['IDFUN'] ?>" class="btn btn-danger">Apagar
+                    </a>
+                        <?php } ?>
                 </main>
 
                 <?php include_once path('template/footer.php') ?>

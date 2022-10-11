@@ -6,6 +6,7 @@
     $nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
+    $senha = $_POST['senha'];
     $cnpj = $_POST['cnpj'];
 
     // Cria a sql para armazenar os valores no banco
@@ -20,11 +21,26 @@
         ':cnpj'  => $cnpj
     ]);
 
+     // Pega o ID do usuário cadastrado
+     $id = $conexaoBanco->lastInsertId();
+
+    // CRIAR O USUARIO ASSOCIADO A ESTE CLIENTE 
+    $sql = "INSERT INTO usuario (email, senha, id_usuario, tipo_usuario) VALUES (:email, :senha, :id_usuario, :tipo_usuario)";
+
+    // Passa os valores para a SQL
+    $peparada = $conexaoBanco->prepare($sql);
+    $resultado = $peparada->execute([
+        ':email'  => $email,
+        ':senha'  => $senha,
+        ':id_usuario' => $id,
+        ':tipo_usuario' => $id
+    ]);
+
     // Pega o ID do usuário cadastrado
     $id = $conexaoBanco->lastInsertId();
 
     if($id > 0){
-        // Cliente cadastrado com sucessso
+        // funcionario cadastrado com sucessso
         header("Location: visualizar.php?id=$id");
     }else{
         // Deu errado
