@@ -97,14 +97,21 @@
                                 <div class="col-3">
                                     <select name="status" id="status">
                                         <option value="--" selected>--</option>
-                                        <option value="aberto">Em Aberto</option>
-                                        <option value="finalizada">Finalizada</option>
+                                        <option value="0">Em Aberto</option>
+                                        <option value="1">Finalizada</option>
                                     </select>
-                                </div>
+                                </div> 
 
                             </div>
                         </div>
                     </div>
+                    
+                    <a href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary" >Editar</a>
+                    <a onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">Apagar</a>
+                    
+                    <hr>
+                    
+  
 
                     <!-- Formulário para adicionar serviço -->
 
@@ -144,6 +151,44 @@
                         </div>
                     </form>
                     <!-- Formulário para adicionar serviço -->
+
+                    <!-- Formulário para adicionar produto -->
+
+                    <form action="salvar_item_produto.php" method="POST" class="bg-dark p-2 text-dark bg-opacity-10">
+                        <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
+                        
+                        <div class="mb-3">
+                                <label for="produto">Produtos:</label>
+
+                                <select class="form-control border-info" name="produto_id" id="produto_id">
+                                    <?php
+                                        foreach($produtos as $produto)
+                                        {
+                                            echo "<option value='{$produto['IDSER']}'> {$produto['nome']} </option>";
+                                        }
+                                    ?>    
+                                </select>
+                            </div>
+                        
+                        <div class="mb-3">
+                            <label for="qtde">Quantidade:</label>
+                            <input type="number" name="qtde" class="form-control border-info" placeholder="00.00" step="0.01" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="valor">Valor:</label>
+                            <input type="number" name="valor" class="form-control border-info" placeholder="00.00" step="0.01" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="observacao">Observação do Serviço:</label>
+                            <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
+                        </div>
+
+                        <div class="text-end">
+                            <input class="btn btn-success" type="submit" name="submit" value="Salvar">
+                        </div>
+                    </form>
                     
 
                     <?php
@@ -177,9 +222,6 @@
                     </table>
 
 
-                    <hr>
-                    <a href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary">Editar</a>
-                    <a onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">Apagar</a>
                 </main>
 
                 <?php include_once path('template/footer.php') ?>
