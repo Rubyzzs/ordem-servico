@@ -1,6 +1,6 @@
 <?php
     include_once '../../config.php';
-
+    
     // Busca os dados do banco
     $sql = "SELECT * FROM ordemdeservico";
     $ordens = retornaDados($sql);

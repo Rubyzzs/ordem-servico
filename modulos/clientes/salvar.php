@@ -32,7 +32,7 @@
     // Passa os valores para a SQL
     $peparada = $conexaoBanco->prepare($sql);
     $resultado = $peparada->execute([
-        ':email'  => $emailCLI,
+        ':email'  => $email,
         ':senha'  => $senha,
         ':id_usuario' => $id,
         ':tipo_usuario' => $id

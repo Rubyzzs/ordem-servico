@@ -15,6 +15,12 @@
 
     $sql = "SELECT * FROM servico";
     $servicos = retornaDados($sql);
+
+    $sql = "SELECT * FROM funcionario";
+    $funcionarios = retornaDados($sql);
+
+    $sql = "SELECT * FROM produto";
+    $produtos = retornaDados($sql);
 ?>
 
 <!DOCTYPE html>
@@ -111,116 +117,163 @@
                     
                     <hr>
                     
-  
 
                     <!-- Formulário para adicionar serviço -->
-
-                    <form action="salvar_item_servico.php" method="POST" class="bg-dark p-2 text-dark bg-opacity-10">
-                        <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
-                        
-                        <div class="mb-3">
-                                <label for="servico">Serviços:</label>
-
-                                <select class="form-control border-info" name="servico_id" id="servico_id">
-                                    <?php
-                                        foreach($servicos as $servico)
-                                        {
-                                            echo "<option value='{$servico['IDSER']}'> {$servico['nome']} </option>";
-                                        }
-                                    ?>    
-                                </select>
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col">
+                                <form action="salvar_item_servico.php" method="POST" class="bg-dark p-2 text-dark bg-opacity-10">
+                                    <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
+                                    
+                                    <div class="mb-3">
+                                        <label for="servico">Serviços:</label>
+                                        
+                                        <select class="form-control border-info" name="servico_id" id="servico_id">
+                                            <?php
+                                                foreach($servicos as $servico)
+                                                {
+                                                    echo "<option value='{$servico['IDSER']}'> {$servico['nome']} </option>";
+                                                }
+                                                ?>    
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="qtde">Quantidade:</label>
+                                        <input type="number" name="qtde" class="form-control border-info" placeholder="00.00" step="0.01" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="valor">Valor:</label>
+                                        <input type="number" name="valor" class="form-control border-info" placeholder="00.00" step="0.01" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="observacao">Observação do Serviço:</label>
+                                        <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
+                                    </div>
+                                    
+                                    <div class="text-end">
+                                        <input class="btn btn-success" type="submit" name="submit" value="Salvar">
+                                    </div>
+                                </form>
                             </div>
-                        
-                        <div class="mb-3">
-                            <label for="qtde">Quantidade:</label>
-                            <input type="number" name="qtde" class="form-control border-info" placeholder="00.00" step="0.01" required>
-                        </div>
+                                
+                            <!-- Formulário para adicionar produto -->
+                                <div class="col">
+                                    <form action="salvar_item_produto.php" method="POST" class="bg-dark p-2 text-dark bg-opacity-10">
+                                            <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
+                                            
+                                            <div class="mb-3">
+                                                <label for="produto">Produtos:</label>
 
-                        <div class="mb-3">
-                            <label for="valor">Valor:</label>
-                            <input type="number" name="valor" class="form-control border-info" placeholder="00.00" step="0.01" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="observacao">Observação do Serviço:</label>
-                            <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
-                        </div>
-
-                        <div class="text-end">
-                            <input class="btn btn-success" type="submit" name="submit" value="Salvar">
-                        </div>
-                    </form>
-                    <!-- Formulário para adicionar serviço -->
-
-                    <!-- Formulário para adicionar produto -->
-
-                    <form action="salvar_item_produto.php" method="POST" class="bg-dark p-2 text-dark bg-opacity-10">
-                        <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
-                        
-                        <div class="mb-3">
-                                <label for="produto">Produtos:</label>
-
-                                <select class="form-control border-info" name="produto_id" id="produto_id">
-                                    <?php
-                                        foreach($produtos as $produto)
-                                        {
-                                            echo "<option value='{$produto['IDSER']}'> {$produto['nome']} </option>";
-                                        }
-                                    ?>    
-                                </select>
+                                                <select class="form-control border-info" name="produto_id" id="produto_id">
+                                                    <?php
+                                                        foreach($produtos as $produto)
+                                                        {
+                                                            echo "<option value='{$produto['IDPRO']}'> {$produto['nome']} </option>";
+                                                        }
+                                                    ?>    
+                                                </select>
+                                            </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="qtde">Quantidade:</label>
+                                            <input type="number" name="qtde" class="form-control border-info" placeholder="00.00" step="0.01" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="valor">Valor:</label>
+                                            <input type="number" name="valor" class="form-control border-info" placeholder="00.00" step="0.01" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="observacao">Observação do Serviço:</label>
+                                            <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
+                                        </div>
+                                        
+                                        <div class="text-end">
+                                            <input class="btn btn-success" type="submit" name="submit" value="Salvar">
+                                        </div>
+                                    </form>
+                                </div>   
                             </div>
-                        
-                        <div class="mb-3">
-                            <label for="qtde">Quantidade:</label>
-                            <input type="number" name="qtde" class="form-control border-info" placeholder="00.00" step="0.01" required>
                         </div>
-
-                        <div class="mb-3">
-                            <label for="valor">Valor:</label>
-                            <input type="number" name="valor" class="form-control border-info" placeholder="00.00" step="0.01" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="observacao">Observação do Serviço:</label>
-                            <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
-                        </div>
-
-                        <div class="text-end">
-                            <input class="btn btn-success" type="submit" name="submit" value="Salvar">
-                        </div>
-                    </form>
                     
 
-                    <?php
-                        $sql = "SELECT * FROM itemservico JOIN servico ON (itemservico.IDSER_FK = servico.IDSER) WHERE IDOS_FK = {$ordem_servico['IDOS']}";
-                        $servicos = retornaDados($sql);
-                    ?>
-                    
-                    <h1>Serviços da ordem</h1>
-                    <table class="table table-dark table-striped">
-                        <thead>
-                            <tr>
-                                <td>Serviço</td>
-                                <td>Quantidade</td>
-                                <td>Valor</td>
-                                <td>Total</td>
-                                <td>Observação</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                foreach($servicos as $servico) { ?>
-                                    <tr>
-                                        <td><?= $servico['nome'] ?></td>
-                                        <td><?= $servico['qtde'] ?></td>
-                                        <td><?= $servico['valorUnit'] ?></td>
-                                        <td><?= $servico['valorTotal'] ?></td>
-                                        <td><?= $servico['observacao'] ?></td>
-                                    </tr>
-                                <?php } ?>
-                        </tbody>
-                    </table>
+                        <?php
+                            $sql = "SELECT * FROM itemservico JOIN servico ON (itemservico.IDSER_FK = servico.IDSER) WHERE IDOS_FK = {$ordem_servico['IDOS']}";
+                            $servicos = retornaDados($sql);
+                        ?>
+                    <div class="text-center">
+                        <h1><b>Serviços e Produtos  da ordem</b></h1> 
+                    </div>
+                    <br>
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col">
+                                    <table class="table table-dark table-striped">
+                                        <thead>
+                                                <tr>
+                                                    <td>Serviço</td>
+                                                    <td>Quantidade</td>
+                                                    <td>Valor</td>
+                                                    <td>Total</td>
+                                                    <td>Observação</td>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach($servicos as $servico) { ?>
+                                                    <tr>
+                                                        <td><?= $servico['nome'] ?></td>
+                                                        <td><?= $servico['qtde'] ?></td>
+                                                        <td><?= $servico['valorUnit'] ?></td>
+                                                        <td><?= $servico['valorTotal'] ?></td>
+                                                        <td><?= $servico['observacao'] ?></td>
+                                                    </tr>
+                                            <?php } ?>
 
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <?php
+                                    $sql = "SELECT * FROM itemproduto JOIN produto ON (itemproduto.IDPRO_FK = produto.IDPRO) WHERE IDOS_FK = {$ordem_servico['IDOS']}";
+                                    $produtos = retornaDados($sql);
+                                ?>
+                                
+                                <div class="col">
+                                        <table class="table table-dark table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <td>Produto</td>
+                                                    <td>Quantidade</td>
+                                                    <td>Valor</td>
+                                                    <td>Total</td>
+                                                    <td>Observação</td>
+                                                </tr>
+                                            </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($produtos as $produto) { ?>
+                                                            <tr>
+                                                                <td><?= $produto['nome'] ?></td>
+                                                                <td><?= $produto['qtde'] ?></td>
+                                                                <td><?= $produto['valorUnit'] ?></td>
+                                                                <td><?= $produto['valorTotal'] ?></td>
+                                                                <td><?= $produto['observacao'] ?></td>
+                                                            </tr>
+                                                    <?php } ?>
+
+                                                </tbody>
+
+                                        </table>
+
+                                </div>
+
+                            </div>   
+                     </div>
 
                 </main>
 

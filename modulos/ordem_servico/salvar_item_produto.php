@@ -17,12 +17,11 @@
 
 
     // Cria a sql para armazenar os valores no banco
-    $sql = "INSERT INTO itemproduto (nome, qtde, valorUnit, valorTotal, observacao, IDOS_FK, IDPRO_FK) VALUES (:nome, :qtde, :valorUnit, :valorTotal, :observacao, :IDOS_FK, :IDPRO_FK)";
+    $sql = "INSERT INTO itemproduto (qtde, valorUnit, valorTotal, observacao, IDOS_FK, IDPRO_FK) VALUES (:qtde, :valorUnit, :valorTotal, :observacao, :IDOS_FK, :IDPRO_FK)";
 
     // Passa os valores para a SQL
     $peparada = $conexaoBanco->prepare($sql);
     $resultado = $peparada->execute([
-        ':nome'  => $nome,
         ':qtde'  => $qtde,
         ':valorUnit'  => $valorUnit,
         ':valorTotal'  => $valorTotal,

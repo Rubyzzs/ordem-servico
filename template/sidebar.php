@@ -72,6 +72,7 @@
                         <?php if(podeMostrar(['cliente'])){ ?>
                             <a class="nav-link" href="<?= links('modulos/ordem_servico/minhas_ordens.php') ?>">Meus Pedidos</a>
                         <?php } ?>
+                        
                     </nav>
                 </div>
 

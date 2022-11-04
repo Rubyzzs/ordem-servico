@@ -6,7 +6,7 @@
     $dat = $_POST['dat'];
     $hora = $_POST['hora'];
     $valor = $_POST['valor'];
-    $cliente_id = $_POST['cliente_id'];
+    $cliente_id = $_POST ['cliente_id'];
     $funcionario_id = pessoa()['IDFUN'];
 
     $obs = $_POST['obs'];

@@ -23,13 +23,13 @@
                                     <div class="card-body">
                                         <form action="<?= links('modulos/autenticacao/entrar.php') ?>" method="POST">
                                             <div class="form-floating mb-3">
-                                                <label for="email">Email</label>
                                                 <input type="email" name="email" class="form-control">
+                                                <label for="email">Email</label>
                                             </div>
                                             
                                             <div class="form-floating mb-3">
-                                                <label for="senha">Senha</label>
                                                 <input type="password" class="form-control" name="senha">
+                                                <label for="senha">Senha</label>
                                             </div>
                                             <div class="text-end">
                                                 <input type="submit" class="btn btn-primary" value="Entrar">
