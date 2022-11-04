@@ -5,10 +5,18 @@
                 <div class="sb-sidenav-menu-heading"></div>
                 
                 <!-- Menu de clientes  -->
+
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
-                        <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
-                        Clientes
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        <?php if(podeMostrar(['funcionario'])){ ?> 
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
+                            Clientes
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        <?php } ?>
+                        <?php if(podeMostrar(['cliente'])){ ?>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
+                            Perfil
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        <?php } ?>
                     </a>
             
                     <div class="collapse" id="collapseClientes" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -16,6 +24,9 @@
                             <?php if(podeMostrar(['funcionario'])){ ?>
                                 <a class="nav-link" href="<?= links('modulos/clientes/cadastrar.php') ?>">Novo Cliente</a>
                                 <a class="nav-link" href="<?= links('modulos/clientes/index.php') ?>">Lista</a>
+                            <?php } ?>
+                            <?php if(podeMostrar(['cliente'])){ ?>
+                                <a class="nav-link" href="<?= links('modulos/clientes/perfil.php') ?>">Perfil</a>
                             <?php } ?>
                         </nav>
                     </div>
@@ -51,6 +62,9 @@
                         <?php if(podeMostrar(['funcionario'])){ ?>
                             <a class="nav-link" href="<?= links('modulos/produtos/cadastrar.php') ?>">Novo produto</a>
                             <a class="nav-link" href="<?= links('modulos/produtos/index.php') ?>">Lista</a>
+                        <?php } ?>
+                        <?php if(podeMostrar(['cliente'])){ ?>
+                            <a class="nav-link" href="<?= links('modulos/produtos/visualizar.php') ?>">Lista</a>
                         <?php } ?>
                     </nav>
                 </div>
@@ -88,6 +102,9 @@
                         <?php if(podeMostrar(['funcionario'])){ ?>
                             <a class="nav-link" href="<?= links('modulos/servicos/cadastrar.php') ?>">Novo Serviço</a>
                             <a class="nav-link" href="<?= links('modulos/servicos/index.php') ?>">Lista</a>
+                        <?php } ?>
+                        <?php if(podeMostrar(['cliente'])){ ?>
+                            <a class="nav-link" href="<?= links('modulos/servicos/visualizar.php') ?>">Lista</a>
                         <?php } ?>
                     </nav>
                 </div>

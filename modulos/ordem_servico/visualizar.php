@@ -112,13 +112,20 @@
                         </div>
                     </div>
                     
-                    <a href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary" >Editar</a>
-                    <a onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">Apagar</a>
+                    <a <?php if(podeMostrar(['funcionario'])){ ?>
+                    href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary" >Editar
+                    </a>
+                        <?php } ?>
+                    <a <?php if(podeMostrar(['funcionario'])){ ?>
+                    onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">Apagar
+                    </a>
+                        <?php } ?>
                     
                     <hr>
                     
 
                     <!-- Formulário para adicionar serviço -->
+                    <?php if(podeMostrar(['funcionario'])){ ?>
                     <div class="container text-center">
                         <div class="row">
                             <div class="col">
@@ -199,6 +206,7 @@
                                 </div>   
                             </div>
                         </div>
+                        <?php } ?>
                     
 
                         <?php

@@ -31,8 +31,14 @@
                     <p><?= $servico['descricao'] ?></p>
 
                     <hr>
-                    <a href="editar.php?id=<?= $servico['IDSER'] ?>" class="btn btn-warning">Editar</a>
-                    <a onclick="return confirm('Deseja realmente apagar o serviço?')" href="apagar.php?id=<?= $servico['IDSER'] ?>" class="btn btn-danger">Apagar</a>
+                    <a <?php if(podeMostrar(['funcionario'])){ ?>
+                    href="editar.php?id=<?= $servico['IDSER'] ?>" class="btn btn-warning">Editar
+                    </a>
+                        <?php } ?>
+                    <a <?php if(podeMostrar(['funcionario'])){ ?>
+                    onclick="return confirm('Deseja realmente apagar o serviço?')" href="apagar.php?id=<?= $servico['IDSER'] ?>" class="btn btn-danger">Apagar
+                    </a>
+                        <?php } ?>
                 </main>
 
                 <?php include_once path('template/footer.php') ?>
