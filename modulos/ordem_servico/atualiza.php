@@ -3,32 +3,32 @@
     include_once '../../config.php';
 
     // Pega os dados que vieram do formulário
-    $id = $_POST['IDOS'];
-    $dat = $_POST['dat'];
+    $id    = $_POST['IDOS'];
+    $dat   = $_POST['dat'];
     $valor = $_POST['valor'];
-    $hora = $_POST['hora'];
-    $obs = $_POST['obs'];
+    $hora  = $_POST['hora'];
+    $obs   = $_POST['obs'];
 
     // Cria a sql para armazenar os valores no banco
-    $sql = "UPDATE produto 
+    $sql = "UPDATE ordemdeservico
         SET 
-            dataOS = :dat, 
+            dataOS       = :dat, 
             valorTotalOS = :valor, 
-            horarioOS = :hora, 
-            obs = :obs
+            horarioOS    = :hora, 
+            obs          = :obs
         WHERE 
             IDOS = :id";
 
     // Passa os valores para a SQL
-    $peparada = $conexaoBanco->prepare($sql);
+    $peparada  = $conexaoBanco->prepare($sql);
     $resultado = $peparada->execute([
-        ':dat'  => $dat,
+        ':dat'    => $dat,
         ':valor'  => $valor,
-        'hora'  => $hora, 
-        ':obs'  => $obs,
-        ':id' => $id
+        ':hora'    => $hora, 
+        ':obs'    => $obs,
+        ':id'     => $id
     ]);
 
     // Cliente cadastrado com sucessso
-    $msg = "Produto atualizado com sucesso";
+    $msg = "Ordem atualizada com sucesso";
     header("Location: visualizar.php?id=$id&msg=$msg");

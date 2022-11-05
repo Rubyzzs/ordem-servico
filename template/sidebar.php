@@ -26,7 +26,7 @@
                                 <a class="nav-link" href="<?= links('modulos/clientes/index.php') ?>">Lista</a>
                             <?php } ?>
                             <?php if(podeMostrar(['cliente'])){ ?>
-                                <a class="nav-link" href="<?= links('modulos/clientes/perfil.php') ?>">Perfil</a>
+                                <a class="nav-link" href="<?= links('modulos/clientes/perfil.php?id=' . pessoa()[0]) ?>">Perfil</a>
                             <?php } ?>
                         </nav>
                     </div>

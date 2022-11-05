@@ -10,7 +10,7 @@
     }
 
     // Busca os dados do banco
-    $sql = "SELECT * FROM ordemdeservico JOIN cliente ON (cliente.IDCLI = ordemdeservico.cliente_id) WHERE IDOS = $id";
+    $sql = "SELECT * FROM ordemdeservico JOIN cliente ON (cliente.IDCLI = ordemdeservico.cliente_id) JOIN funcionario ON (funcionario.IDFUN = ordemdeservico.funcionario_id) WHERE IDOS = $id";
     $ordem_servico = retornaDado($sql);
 
     $sql = "SELECT * FROM servico";
@@ -70,14 +70,7 @@
                                 </div>
                                 
                                 <div class="col-3">
-                                <select class="form-control border-info" name="funcionario_id" id="funcionario_id">
-                                    <?php
-                                        foreach($funcionarios as $funcionario)
-                                        {
-                                            echo "<option value='{$funcionario['IDFUN']}'> {$funcionario['nomeFUN']} </option>";
-                                        }
-                                    ?>    
-                                </select>
+                                    <p class="form-control border-info"><?= $ordem_servico['nomeFUN']?></p>
                                 </div>
 
                                 <div class="col-3">
@@ -95,27 +88,16 @@
                                 <div class="col-3">
                                     <p class="form-control border-info"><?= $ordem_servico['obs'] ?></p>
                                 </div>
-
-                                <div class="col-3">
-                                    <label for="status "><b>Situação da Ordem:</b></label>
-                                </div>
-                                
-                                <div class="col-3">
-                                    <select name="status" id="status">
-                                        <option value="--" selected>--</option>
-                                        <option value="0">Em Aberto</option>
-                                        <option value="1">Finalizada</option>
-                                    </select>
-                                </div> 
-
                             </div>
                         </div>
                     </div>
                     
                     <a <?php if(podeMostrar(['funcionario'])){ ?>
-                    href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary" >Editar
+                        href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary" >Editar
                     </a>
                         <?php } ?>
+                    <a href="status.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-warning">Fechar</a>
+
                     <a <?php if(podeMostrar(['funcionario'])){ ?>
                     onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">Apagar
                     </a>
@@ -125,11 +107,13 @@
                     
 
                     <!-- Formulário para adicionar serviço -->
-                    <?php if(podeMostrar(['funcionario'])){ ?>
-                    <div class="container text-center">
+                    <?php if(podeMostrar(['funcionario']) && $ordem_servico['status'] == 'Aberto'){ ?>
+                    <div class="container">
                         <div class="row">
                             <div class="col">
-                                <form action="salvar_item_servico.php" method="POST" class="bg-dark p-2 text-dark bg-opacity-10">
+                                <form action="salvar_item_servico.php" method="POST" class="bg-dark text-dark bg-opacity-10 p-3 rounded">
+                                    <p class="lead">Adicionar Serviço</p>
+
                                     <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
                                     
                                     <div class="mb-3">
@@ -236,7 +220,7 @@
                                                     <tr>
                                                         <td><?= $servico['nome'] ?></td>
                                                         <td><?= $servico['qtde'] ?></td>
-                                                        <td><?= $servico['valorUnit'] ?></td>
+                                                        <td>R$ <?= number_format($servico['valorUnit'], 2, ',', '.') ?></td>
                                                         <td><?= $servico['valorTotal'] ?></td>
                                                         <td><?= $servico['observacao'] ?></td>
                                                     </tr>

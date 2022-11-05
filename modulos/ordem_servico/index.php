@@ -2,7 +2,12 @@
     include_once '../../config.php';
     
     // Busca os dados do banco
-    $sql = "SELECT * FROM ordemdeservico";
+    if(podeMostrar(['cliente'])){
+        $sql = "SELECT * FROM ordemdeservico WHERE cliente_id = " . pessoa()[0];
+    }
+    elseif(podeMostrar(['funcionario'])){
+        $sql = "SELECT * FROM ordemdeservico WHERE funcionario_id = " . pessoa()[0];
+    }
     $ordens = retornaDados($sql);
 ?>
 

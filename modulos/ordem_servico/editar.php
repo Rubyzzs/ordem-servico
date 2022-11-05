@@ -25,7 +25,9 @@
             <div id="layoutSidenav_content">
                 <main class="container">
                         <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
-                                <form action="salvar.php" method="POST">
+                                <form action="atualiza.php" method="POST">
+                                    <input type="hidden" name="IDOS" value="<?= $id ?>">
+                                    
                                     <div class="mb-3">
                                         <label for="dat">Data:</label>
                                         <input type="date" name="dat" class="form-control" value="<?= $ordem_servico['dataOS'] ?>" required>
@@ -43,11 +45,12 @@
 
                                     <div class="mb-3">
                                         <label for="obs">Observações:</label>
-                                        <textarea name="obs" class="form-control"  rows="5" value="<?= $ordem_servico['obs'] ?>" required></textarea>
+                                        <textarea name="obs" class="form-control"  rows="5" required><?= $ordem_servico['obs'] ?></textarea>
                                     </div>
 
                                     <div class="text-end">
                                         <input class="btn btn-primary" type="submit" name="submit" value="Cadastrar">
+                                        <a class="btn btn-danger" href="visualizar.php?id=<?= $ordem_servico['IDOS'] ?>">Cancelar</a>
                                     </div>
                                 </form>
                         </div>                           

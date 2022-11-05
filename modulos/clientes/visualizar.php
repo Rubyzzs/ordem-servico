@@ -25,16 +25,29 @@
             <div id="layoutSidenav_content">
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
-                    
-                    <h1><?= $cliente['nomeCLI'] ?></h1>
-                    <p><?= $cliente['telCLI'] ?></p>
-                    <p><?= $cliente['endCLI'] ?></p>
-                    <p><?= $cliente['emailCLI'] ?></p>
-                    <p><?= $cliente['cpfCLI'] ?></p>
 
-                    <hr>
-                    <a href="editar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-warning">Editar</a>
-                    <a onclick="return confirm('Deseja realmente apagar o cliente?')" href="apagar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-danger">Apagar</a>
+                    <div>
+                        <div class="card-header text-white bg-primary bg-opacity-50 text-center">
+                            <h1><b><?= $cliente['nomeCLI'] ?></b></h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="row float-left w-100">
+                                <div class="col-3">
+                                    <label for="">Telefone</label>
+                                    <p><?= $cliente['telCLI'] ?></p>
+                                </div>
+                                <div>
+                                    </div>
+                                    <p><?= $cliente['endCLI'] ?></p>
+                                    <p><?= $cliente['emailCLI'] ?></p>
+                                    <p><?= $cliente['cpfCLI'] ?></p>
+                                </div>   
+                            </div>
+                            
+                            <hr>
+                            <a href="editar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-warning">Editar</a>
+                            <a onclick="return confirm('Deseja realmente apagar o cliente?')" href="apagar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-danger">Apagar</a>
+                    </div>
                 </main>
 
                 <?php include_once path('template/footer.php') ?>
