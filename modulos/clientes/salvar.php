@@ -9,9 +9,11 @@
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $cpf = $_POST['cpf'];
+    $cidade = $_POST['cidade'];
+    $estado = $_POST['estado'];
 
     // Cria a sql para armazenar os valores no banco
-    $sql = "INSERT INTO cliente (nomeCLI, endCLI, telCLI, emailCLI, cpfCLI) VALUES (:nome, :endereco, :tel, :email, :cpf)";
+    $sql = "INSERT INTO cliente (nomeCLI, endCLI, telCLI, emailCLI, cpfCLI, cidade, estado) VALUES (:nome, :endereco, :tel, :email, :cpf, :cidade, :estado)";
 
     // Passa os valores para a SQL
     $peparada = $conexaoBanco->prepare($sql);
@@ -20,7 +22,9 @@
         ':endereco'  => $endereco,
         ':tel'  => $tel,
         ':email'  => $email,
-        ':cpf'  => $cpf
+        ':cpf'  => $cpf,
+        ':cidade'  => $cidade,
+        ':estado'  => $estado
     ]);
 
     // Pega o ID do usuário cadastrado

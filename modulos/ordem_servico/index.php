@@ -25,12 +25,13 @@
 
                     <h1 class="text-center display-3">Lista de Ordens</h1>
 
-                    <table class="table table-dark table-hover">
+                    <table class="table table-dark table-hover table-bordered">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Data</th>
                                 <th>Hora</th>
+                                <th>Status da ordem</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -40,6 +41,7 @@
                                     <td><?= $ordem_servico['IDOS'] ?></td>
                                     <td><?= $ordem_servico['dataOS'] ?></td>
                                     <td><?= $ordem_servico['horarioOS'] ?></td>
+                                    <td><?= $ordem_servico['status'] ?></td>
                                     <td>
                                         <a class="btn btn-secondary btn-sm" href="visualizar.php?id=<?= $ordem_servico['IDOS'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>

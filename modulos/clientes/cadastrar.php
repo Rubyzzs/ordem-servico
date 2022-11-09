@@ -25,6 +25,11 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="cpf">CPF:</label>
+                                <input type="text" class="form-control" name="cpf" placeholder="digite o cpf/cnpj sem ponto" required>
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="endereco">Endereço:</label>
                                 <input type="text" name="endereco" class="form-control" placeholder="R. Xxxx; 123" required>
                             </div>
@@ -40,12 +45,18 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="cpf">CPF:</label>
-                                <input type="text" class="form-control" name="cpf" placeholder="digite o cpf/cnpj sem ponto" required>
-                            </div>
-                            <div class="mb-3">
                                 <label for="senha">Senha:</label>
                                 <input type="password" name="senha" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cidade">Cidade:</label>
+                                <input type="text" class="form-control" name="cidade" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="estado">Estado:</label>
+                                <input type="text" class="form-control" name="estado" required>
                             </div>
                             
                             <div class="text-end">

@@ -35,8 +35,8 @@
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
                         
-                    <div class="bg-dark p-2 text-dark bg-opacity-10">
-                        <div class="card-header text-white bg-info bg-opacity-50 text-center">
+                    <div class="p-3 rounded text-dark" style="background-color: #F0F8FF;">
+                        <div class="card-header rounded text-white text-center" style="background-color: #87CEEB;">
                             <h1><b>Ordem de Serviço #<?= $ordem_servico['IDOS']?></b></h1>
                         </div>
 
@@ -96,7 +96,11 @@
                         href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary" >Editar
                     </a>
                         <?php } ?>
-                    <a href="status.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-warning">Fechar</a>
+                        
+                    <a <?php if(podeMostrar(['funcionario'])){ ?>
+                    href="status.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-warning">Fechar
+                    </a>
+                        <?php } ?>
 
                     <a <?php if(podeMostrar(['funcionario'])){ ?>
                     onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">Apagar
@@ -110,8 +114,8 @@
                     <?php if(podeMostrar(['funcionario']) && $ordem_servico['status'] == 'Aberto'){ ?>
                     <div class="container">
                         <div class="row">
-                            <div class="col">
-                                <form action="salvar_item_servico.php" method="POST" class="bg-dark text-dark bg-opacity-10 p-3 rounded">
+                            <div class="col-6">
+                                <form action="salvar_item_servico.php" method="POST" class="text-dark bg-opacity-10 p-3 rounded" style="background-color: #F0FFFF;">
                                     <p class="lead">Adicionar Serviço</p>
 
                                     <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
@@ -140,7 +144,7 @@
                                     </div>
                                     
                                     <div class="mb-3">
-                                        <label for="observacao">Observação do Serviço:</label>
+                                        <label for="observacao">Descrição do Serviço:</label>
                                         <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
                                     </div>
                                     
@@ -151,8 +155,10 @@
                             </div>
                                 
                             <!-- Formulário para adicionar produto -->
-                                <div class="col">
-                                    <form action="salvar_item_produto.php" method="POST" class="bg-dark p-2 text-dark bg-opacity-10">
+                                <div class="col-6">
+                                    <form action="salvar_item_produto.php" method="POST" class="text-dark bg-opacity-10 p-3 rounded" style="background-color: #F0FFFF;">
+                                        <p class="lead">Adicionar Produto</p>
+
                                             <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
                                             
                                             <div class="mb-3">
@@ -179,7 +185,7 @@
                                         </div>
                                         
                                         <div class="mb-3">
-                                            <label for="observacao">Observação do Serviço:</label>
+                                            <label for="observacao">Descrição do Produto:</label>
                                             <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
                                         </div>
                                         
@@ -204,14 +210,14 @@
                         <div class="container text-center">
                             <div class="row">
                                 <div class="col">
-                                    <table class="table table-dark table-striped">
+                                    <table class="table table-dark table-bordered">
                                         <thead>
                                                 <tr>
                                                     <td>Serviço</td>
                                                     <td>Quantidade</td>
                                                     <td>Valor</td>
                                                     <td>Total</td>
-                                                    <td>Observação</td>
+                                                    <td>Descrição</td>
                                                 </tr>
                                         </thead>
                                         <tbody>
@@ -236,7 +242,7 @@
                                 ?>
                                 
                                 <div class="col">
-                                        <table class="table table-dark table-striped">
+                                        <table class="table table-dark table-bordered">
                                             <thead>
                                                 <tr>
                                                     <td>Produto</td>

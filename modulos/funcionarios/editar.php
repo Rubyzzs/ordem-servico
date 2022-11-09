@@ -43,16 +43,6 @@
                                 <label for="email">Email:</label>
                                 <input type="email" name="email" class="form-control" placeholder="xxxxx@xxxx" value="<?= $funcionario['emailFUN'] ?>" required>
                             </div>
-
-                            <!-- <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input" name="cpf" value="CPF">
-                                <label for="cpf" class="form-check-label">CPF</label>
-                            </div>
-
-                            <div class="form-check form-check-inline mb-2">
-                                <input type="radio" class="form-check-input" name="cpf" value="cnpj">
-                                <label for="cnpj" class="form-check-label">CNPJ</label><br>
-                            </div> -->
                             
                             <div class="mb-3">
                                 <label for="cnpj">CNPJ:</label>

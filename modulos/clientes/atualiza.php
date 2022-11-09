@@ -9,6 +9,8 @@
     $telefone = $_POST['telefone'];
     $email    = $_POST['email'];
     $cpf      = $_POST['cpf'];
+    $cidade   = $_POST['cidade'];
+    $estado   = $_POST['estado'];
 
     // Cria a sql para armazenar os valores no banco
     $sql = "UPDATE cliente 
@@ -17,7 +19,9 @@
             endCLI   = :endereco, 
             telCLI   = :telefone, 
             emailCLI = :email, 
-            cpfCLI   = :cpf
+            cpfCLI   = :cpf,
+            cidade   = :cidade,
+            estado   = :estado
         WHERE 
             IDCLI = :id";
 
@@ -29,6 +33,8 @@
         ':telefone'  => $telefone,
         ':email'     => $email,
         ':cpf'       => $cpf,
+        ':cidade'    => $cidade,
+        ':estado'    => $estado,
         ':id'        => $id
     ]);
 

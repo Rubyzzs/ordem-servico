@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Out-2022 às 04:50
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.0.19
+-- Tempo de geração: 09-Nov-2022 às 01:37
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.0.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,15 +33,20 @@ CREATE TABLE `cliente` (
   `endCLI` varchar(105) NOT NULL,
   `telCLI` varchar(20) NOT NULL,
   `emailCLI` varchar(105) NOT NULL,
-  `cpfCLI` varchar(25) NOT NULL
+  `cpfCLI` varchar(25) NOT NULL,
+  `cidade` varchar(50) NOT NULL,
+  `estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `cliente`
 --
 
-INSERT INTO `cliente` (`IDCLI`, `nomeCLI`, `endCLI`, `telCLI`, `emailCLI`, `cpfCLI`) VALUES
-(1, 'Jonathan Sousa Pires', 'Felipe Garcia Aldana ; 382', '3627-1128', 'jonathan@hotmail.com', '753.698.123-79');
+INSERT INTO `cliente` (`IDCLI`, `nomeCLI`, `endCLI`, `telCLI`, `emailCLI`, `cpfCLI`, `cidade`, `estado`) VALUES
+(1, 'Jonathan Sousa Pires', 'Felipe Garcia Aldana ; 382', '3627-1127', 'jonathan@hotmail.com', '753.698.123-77', '', ''),
+(4, 'Kauã Moreira', 'Manuel Guimarães; 217', '18 3622-3875', 'kaua@email.com', '789,321,698-78', '', ''),
+(5, 'Valmir', 'Manuel Guimarães; 217', '18 3622-1124', 'valmir@email.com', '789.546.123.95', '', ''),
+(6, 'Fravio', 'taveira', '9967852113', 'fravio@email.com', '44970695830', '', '');
 
 -- --------------------------------------------------------
 
@@ -80,7 +85,7 @@ CREATE TABLE `funcionario` (
 
 INSERT INTO `funcionario` (`IDFUN`, `nomeFUN`, `emailFUN`, `cnpjFUN`, `telFUN`) VALUES
 (2, 'Carol', 'carol@hotmail.com', '745.985.123-12', '3254-7895'),
-(13, 'Eu', 'adm@adm.com', '1278945698', '1234566');
+(13, 'Patrícia', 'adm@adm.com', '1278945698', '1234566');
 
 -- --------------------------------------------------------
 
@@ -97,6 +102,18 @@ CREATE TABLE `itemproduto` (
   `IDOS_FK` int(11) NOT NULL,
   `IDPRO_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `itemproduto`
+--
+
+INSERT INTO `itemproduto` (`IDIP`, `qtde`, `valorUnit`, `valorTotal`, `observacao`, `IDOS_FK`, `IDPRO_FK`) VALUES
+(2, 1, '1000', '1000', 'trcoca', 8, 1),
+(3, 1, '1000', '1000', 'Troca', 8, 3),
+(4, 2, '200', '400', 'Venda', 3, 1),
+(5, 1, '300', '300', 'sssss', 3, 3),
+(6, 2, '78', '156', '5555', 10, 1),
+(7, 2, '700', '1400', 'eeeeee', 9, 2);
 
 -- --------------------------------------------------------
 
@@ -121,7 +138,10 @@ CREATE TABLE `itemservico` (
 INSERT INTO `itemservico` (`IDIS`, `qtde`, `valorUnit`, `valorTotal`, `observacao`, `IDOS_FK`, `IDSER_FK`) VALUES
 (1, 10, '10', '0', '101', 3, 1),
 (2, 10, '20', '200', 'sim', 3, 1),
-(3, 1, '250', '250', 'Conserto da maquina x', 3, 1);
+(3, 1, '250', '250', 'Conserto da maquina x', 3, 1),
+(4, 1, '100', '100', 'Reparo', 8, 1),
+(5, 1, '99', '99', 'ooooo', 10, 1),
+(6, 1, '50', '50', 'pppppp', 9, 1);
 
 -- --------------------------------------------------------
 
@@ -137,19 +157,22 @@ CREATE TABLE `ordemdeservico` (
   `valorTotalOS` bigint(20) NOT NULL,
   `cliente_id` int(11) NOT NULL,
   `funcionario_id` int(11) NOT NULL,
-  `obs` varchar(300) NOT NULL
+  `obs` varchar(300) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ordemdeservico`
 --
 
-INSERT INTO `ordemdeservico` (`IDOS`, `nomeCLI`, `dataOS`, `horarioOS`, `valorTotalOS`, `cliente_id`, `funcionario_id`, `obs`) VALUES
-(3, '', '2022-09-17', '13:59:00', 350, 1, 2, 'jkhkhkh'),
-(4, '', '2022-09-17', '13:59:00', 350, 1, 2, 'Reparo na placa mãe'),
-(5, '', '2022-09-10', '15:00:00', 250, 2, 2, 'T4s'),
-(6, '', '2022-10-12', '11:00:00', 1000, 1, 2, 'TEste'),
-(7, '', '2022-10-12', '11:00:00', 1000, 1, 2, 'TEste');
+INSERT INTO `ordemdeservico` (`IDOS`, `nomeCLI`, `dataOS`, `horarioOS`, `valorTotalOS`, `cliente_id`, `funcionario_id`, `obs`, `status`) VALUES
+(3, '', '2022-09-17', '13:59:00', 350, 1, 2, 'jkhkhkh', 'Fechado'),
+(4, '', '2022-09-17', '13:59:00', 350, 1, 2, 'Reparo na placa mãe', ''),
+(6, '', '2022-10-12', '11:00:00', 1000, 1, 2, 'TEste', ''),
+(7, '', '2022-10-12', '11:00:00', 1000, 1, 2, 'TEste', ''),
+(8, '', '2022-11-03', '20:13:00', 252, 4, 13, 'Teeste', 'Fechado'),
+(9, '', '2022-11-08', '22:45:00', 2563, 1, 13, 'TEste', 'Aberto'),
+(10, '', '2022-11-04', '22:18:00', 50, 6, 13, 'LALLALALA', 'Aberto');
 
 -- --------------------------------------------------------
 
@@ -214,7 +237,10 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id`, `email`, `senha`, `tipo_usuario`, `id_usuario`) VALUES
 (1, 'jonatha@email.com', '123123123', 'cliente', 1),
 (2, 'lucas@email.com', '123123123', 'funcionario', 1),
-(4, 'adm@adm.com', '123', 'funcionario', 13);
+(4, 'adm@adm.com', '123', 'funcionario', 13),
+(5, 'kaua@email.com', '123', 'cliente', 4),
+(6, 'valmir@email.com', '123', 'cliente', 5),
+(7, 'fravio@email.com', '123', 'cliente', 6);
 
 --
 -- Índices para tabelas despejadas
@@ -287,7 +313,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `empresa`
@@ -305,19 +331,19 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT de tabela `itemproduto`
 --
 ALTER TABLE `itemproduto`
-  MODIFY `IDIP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IDIP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `itemservico`
 --
 ALTER TABLE `itemservico`
-  MODIFY `IDIS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IDIS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `ordemdeservico`
 --
 ALTER TABLE `ordemdeservico`
-  MODIFY `IDOS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `IDOS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
@@ -335,7 +361,7 @@ ALTER TABLE `servico`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restrições para despejos de tabelas

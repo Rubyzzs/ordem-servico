@@ -1,6 +1,7 @@
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar" style="background: rgb(2,0,36);
+background: linear-gradient(95deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 25%, rgba(0,212,255,1) 94%);">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="<?= links('index.php')?>">Área Administrativa</a>
+    <a class="navbar-brand ps-3 text-white" href="<?= links('index.php')?>">Área Administrativa</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->

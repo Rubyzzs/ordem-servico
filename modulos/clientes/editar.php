@@ -12,6 +12,9 @@
     // Busca os dados do banco
     $sql = "SELECT * FROM cliente WHERE IDCLI = $id";
     $cliente = retornaDado($sql);
+
+    $sql = "SELECT * FROM usuario WHERE id = $id";
+    $usuario = retornaDado($sql);
 ?>
 
 <!DOCTYPE html>
@@ -24,40 +27,59 @@
 
             <div id="layoutSidenav_content">
                 <main class="container">
-                    <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
-                        <form action="atualiza.php" method="POST">
-                            <input type="hidden" name="IDCLI" value="<?= $cliente['IDCLI'] ?>">
-                            
-                            <div class="mb-3">
-                                <label for="nome">Nome Completo:</label>
-                                <input type="text" name="nome" class="form-control" placeholder="Nome Completo" value="<?= $cliente['nomeCLI'] ?>" required>
+                    <div class="container rounded mt-3 mb-5" style="background-color: #F0F8FF;">
+                        <div class="row">
+                            <div class="col-md-4 border-right">
+                                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                    <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                                    <span class="font-weight-bold"><?= $cliente['nomeCLI'] ?></span>
+                                    <span class="text-black-50"><?= $cliente['emailCLI'] ?></span>
+                                </div>
                             </div>
+                            <div class="col-md-4 border-right">
+                                <div class="p-3 py-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="text-right">Meus dados</h4>
+                                    </div>
+                                    <form action="atualiza.php" method="POST">
+                                        <input type="hidden" name="IDCLI" value="<?= $cliente['IDCLI'] ?>">
+                                            <div class="row mt-3">
+                                                <div class="col-md-12"><label class="nome">Nome completo:</label>
+                                                <input type="text" name="nome" class="form-control" value="<?= $cliente['nomeCLI'] ?>" required>
+                                                </div>
 
-                            <div class="mb-3">
-                                <label for="endereco">Endereço:</label>
-                                <input type="text" name="endereco" class="form-control" placeholder="R. Xxxx; 123" value="<?= $cliente['endCLI'] ?>" required>
-                            </div>
+                                                <div class="col-md-12"><label class="labels">Cpf:</label>
+                                                <input type="text" name="cpf" class="form-control" value="<?= $cliente['cpfCLI'] ?>" required>
+                                                </div>
 
-                            <div class="mb-3">
-                                <label for="telefone">Telefone:</label>
-                                <input type="text" name="telefone" class="form-control" placeholder="Ex. (xx)123445678" value="<?= $cliente['telCLI'] ?>" required>
-                            </div>
+                                                <div class="col-md-12"><label class="labels">Telefone:</label>
+                                                <input type="text" name="telefone" class="form-control" value="<?= $cliente['telCLI'] ?>" required>
+                                                </div>
 
-                            <div class="mb-3">
-                                <label for="email">Email:</label>
-                                <input type="email" name="email" class="form-control" placeholder="xxxxx@xxxx" value="<?= $cliente['emailCLI'] ?>" required>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="cpf">CPF/CNPJ:</label>
-                                <input type="text" class="form-control" name="cpf" placeholder="digite o cpf/cnpj" value="<?= $cliente['cpfCLI'] ?>" required>
-                            </div>
+                                                <div class="col-md-12"><label class="labels">Endereço:</label>
+                                                <input type="text" name="endereco" class="form-control" value="<?= $cliente['endCLI'] ?>" required>
+                                                </div>
 
-                            <div class="text-end">
-                                <input class="btn btn-success" type="submit" name="submit" value="Salvar">
-                                <a class="btn btn-danger" href="visualizar.php?id=<?= $cliente['IDCLI'] ?>">Cancelar</a>
+                                                <div class="col-md-12"><label class="labels">Email:</label>
+                                                <input type="email" name="email" class="form-control" value="<?= $cliente['emailCLI'] ?>" required>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-6"><label class="labels">Cidade:</label>
+                                                <input type="text" name="cidade" class="form-control" value="<?= $cliente['cidade'] ?>" required>
+                                                </div>
+                                                <div class="col-md-6"><label class="labels">Estado</label>
+                                                <input type="text" name="estado" class="form-control" value="<?= $cliente['estado'] ?>" required>
+                                                </div>
+                                            </div>
+                                            <div class="mt-5 text-center"><a href="salvar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-success profile-button">Salvar</a>
+                                                <a class="btn btn-danger" href="visualizar.php?id=<?= $funcionario['IDFUN'] ?>">Cancelar</a>   
+                                            </div>
+                                    </form>
+                                </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </main>
 
