@@ -24,8 +24,9 @@
 
             <div id="layoutSidenav_content">
                 <main class="container">
-                        <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
+                        <div class="card-body p-3 mb-2 mt-3 rounded">
                                 <form action="atualiza.php" method="POST">
+                                <h1 class="display-1 text-center">Alterar dados da Ordem</h1>
                                     <input type="hidden" name="IDOS" value="<?= $id ?>">
                                     
                                     <div class="mb-3">

@@ -12,7 +12,8 @@
 
             <div id="layoutSidenav_content">
                 <main class="container">
-                    <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
+                    <div class="card-body p-3 mb-2 mt-3 rounded">
+                    <h1 class="display-1 text-center">Cadastrar Serviço</h1>
                         <form action="salvar.php" method="POST">
                             <div class="mb-3">
                                 <label for="nome">Serviço:</label>

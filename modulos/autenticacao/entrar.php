@@ -13,7 +13,8 @@
         // Existe um usuário
         if($usuario['senha'] != $senha){
             // Senha ta errada. Volta pro login e destroi a sessão]
-            header('Location: ' . links('login.php'));
+            $mensagem = "Senha não confere!";
+            header('Location: ' . links('login.php?mensagem=' . $mensagem));
         }else{
             // Senha ta certa. Salva a sessão e redireciona pra home.
             $_SESSION['id'] = $usuario['id'];
@@ -22,5 +23,6 @@
         }
     }else{
         // Não existe um usuário com esse email
-        header('Location: ' . links('login.php'));
+        $mensagem = "Email não existe!";
+        header('Location: ' . links('login.php?mensagem=' . $mensagem));
     }

@@ -73,8 +73,9 @@
                                                 <input type="text" name="estado" class="form-control" value="<?= $cliente['estado'] ?>" required>
                                                 </div>
                                             </div>
-                                            <div class="mt-5 text-center"><a href="salvar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-success profile-button">Salvar</a>
-                                                <a class="btn btn-danger" href="visualizar.php?id=<?= $funcionario['IDFUN'] ?>">Cancelar</a>   
+                                            <div class="mt-5 text-center">
+                                                <input class="btn btn-success" type="submit" name="submit" value="Salvar">
+                                                <a class="btn btn-danger" href="visualizar.php?id=<?= $cliente['IDCLI'] ?>">Cancelar</a>   
                                             </div>
                                     </form>
                                 </div>

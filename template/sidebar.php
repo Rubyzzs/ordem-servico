@@ -41,7 +41,7 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 25%, rgba
                 <div class="collapse text-white" id="collapseFuncionario" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <?php if(podeMostrar(['funcionario'])){ ?>
-                                <a class="nav-link text-white" href="<?= links('modulos/funcionarios/cadastrar.php') ?>">Novo Funcionários</a>
+                                <a class="nav-link text-white" href="<?= links('modulos/funcionarios/cadastrar.php') ?>">Novo Funcionário</a>
                                 <a class="nav-link text-white" href="<?= links('modulos/funcionarios/index.php') ?>">Lista</a>
                             <?php } ?>
                             <?php if(podeMostrar(['cliente'])){ ?>

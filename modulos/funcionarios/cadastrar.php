@@ -17,7 +17,8 @@
 
             <div id="layoutSidenav_content">
                 <main class="container">
-                    <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
+                    <div class="card-body p-3 mb-2 mt-3 rounded">
+                    <h1 class="display-1 text-center">Cadastrar de Funcionário</h1>
                         <form action="salvar.php" method="POST">
                             <div class="mb-3">
                                 <label for="nome">Nome Completo:</label>
@@ -36,15 +37,22 @@
                                 <input type="text" class="form-control" name="cnpj" placeholder="digite o cpf/cnpj" required>
                             </div>
                             
-                            <div class="mb-3">
-                                <label for="email">Email:</label>
-                                <input type="email" name="email" class="form-control" placeholder="xxxxx@xxxx" required>
+                            <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="email" class="form-control" placeholder="xxxxx@xxxx" required>
+                                </div>
                             </div>
+                                
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="senha">Senha:</label>
+                                    <input type="password" name="senha" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
 
-                            <div class="mb-3">
-                                <label for="senha">Senha:</label>
-                                <input type="password" name="senha" class="form-control" required>
-                            </div>
                             <div class="text-end">
                                 <input class="btn btn-primary" type="submit" name="submit" value="Cadastrar">
                             </div>

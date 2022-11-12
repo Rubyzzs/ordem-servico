@@ -45,6 +45,9 @@ $cliente = retornaDado($sql);
                                     <div class="col-md-12"><label class="labels">Nome completo:</label>
                                         <p class="form-control"><?= $cliente['nomeCLI'] ?></p>
                                     </div>
+                                    <div class="col-md-12"><label class="labels">Cpf:</label>
+                                        <p class="form-control"><?= $cliente['cpfCLI'] ?></p>
+                                    </div>
                                     <div class="col-md-12"><label class="labels">Telefone:</label>
                                         <p class="form-control"><?= $cliente['telCLI'] ?></p>
                                     </div>
@@ -64,7 +67,9 @@ $cliente = retornaDado($sql);
                                     </div>
                                 </div>
                                 <div class="mt-5 text-center"><a href="editar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-primary profile-button">Alterar</a>
-                                    <a  <?php if (podeMostrar(['funcionario'])) { ?> onclick="return confirm('Deseja realmente apagar o cliente?')" href="apagar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-danger">Apagar
+                                        <?php if (podeMostrar(['funcionario'])) { ?>
+                                    <a 
+                                      onclick="return confirm('Deseja realmente apagar o cliente?')" href="apagar.php?id=<?= $cliente['IDCLI'] ?>" class="btn btn-danger">Apagar
                                     </a>
                                         <?php } ?>
                                 </div>

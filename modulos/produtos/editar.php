@@ -24,7 +24,8 @@
 
             <div id="layoutSidenav_content">
                 <main class="container">
-                    <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
+                    <div class="card-body p-3 mb-2 mt-3 rounded">
+                    <h1 class="display-1 text-center">Alterar dados do Produto</h1>
                         <form action="atualiza.php" method="POST">
                             <input type="hidden" name="IDPRO" value="<?= $produto['IDPRO'] ?>">
                             

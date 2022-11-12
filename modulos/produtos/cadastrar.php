@@ -12,8 +12,9 @@
 
             <div id="layoutSidenav_content">
                 <main class="container">
-                    <div class="card-body p-3 mb-2 bg-secondary text-white mt-3 rounded">
+                    <div class="card-body p-3 mb-2 mt-3 rounded">
                         <form action="salvar.php" method="POST">
+                        <h1 class="display-1 text-center">Cadastrar Produto</h1>
                             <div class="mb-3">
                                 <label for="nome">Produto:</label>
                                 <input type="text" name="nome" class="form-control" placeholder="Nome do produto" required>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Nov-2022 às 01:37
+-- Tempo de geração: 12-Nov-2022 às 04:22
 -- Versão do servidor: 10.4.25-MariaDB
 -- versão do PHP: 8.0.23
 
@@ -43,27 +43,12 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`IDCLI`, `nomeCLI`, `endCLI`, `telCLI`, `emailCLI`, `cpfCLI`, `cidade`, `estado`) VALUES
-(1, 'Jonathan Sousa Pires', 'Felipe Garcia Aldana ; 382', '3627-1127', 'jonathan@hotmail.com', '753.698.123-77', '', ''),
+(1, 'Jonathan Sousa Pires', 'Felipe Garcia Aldana ; 382', '3627-1127', 'jonathan@hotmail.com', '753.698.123-77', ' Araçatuba', 'São Paulo'),
 (4, 'Kauã Moreira', 'Manuel Guimarães; 217', '18 3622-3875', 'kaua@email.com', '789,321,698-78', '', ''),
 (5, 'Valmir', 'Manuel Guimarães; 217', '18 3622-1124', 'valmir@email.com', '789.546.123.95', '', ''),
-(6, 'Fravio', 'taveira', '9967852113', 'fravio@email.com', '44970695830', '', '');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `empresa`
---
-
-CREATE TABLE `empresa` (
-  `IDEMP` int(11) NOT NULL,
-  `nomeEMP` varchar(105) NOT NULL,
-  `endEMP` varchar(105) NOT NULL,
-  `telEMP` bigint(20) NOT NULL,
-  `emailEMP` varchar(105) NOT NULL,
-  `cnpjEMP` bigint(20) NOT NULL,
-  `InsEstEMP` bigint(20) NOT NULL,
-  `IDOS_FK` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(6, 'Fravio', 'taveira', '9967852113', 'fravio@email.com', '44970695830', '', ''),
+(7, 'Livia', 'Euclides cunha, 789', '3627-1127', 'livia@email.com', '123', 'Araçatuba', 'SP'),
+(8, 'Artur de Lima', 'Lá, 89', '18 66666-666', 'artur@email.com', '666.666.666-66', 'Araçatuba', 'SP');
 
 -- --------------------------------------------------------
 
@@ -85,7 +70,9 @@ CREATE TABLE `funcionario` (
 
 INSERT INTO `funcionario` (`IDFUN`, `nomeFUN`, `emailFUN`, `cnpjFUN`, `telFUN`) VALUES
 (2, 'Carol', 'carol@hotmail.com', '745.985.123-12', '3254-7895'),
-(13, 'Patrícia', 'adm@adm.com', '1278945698', '1234566');
+(13, 'Patrícia', 'adm@adm.com', '1278945698', '1234566'),
+(14, 'Gilvan dos Santos Lima', 'gilvan@emai.com', '784.512.666-55', '18 3622-1124'),
+(15, 'Lucas Anjos', 'lucasA@email.com', '445.568.789-54', '18 99845-7895');
 
 -- --------------------------------------------------------
 
@@ -141,7 +128,9 @@ INSERT INTO `itemservico` (`IDIS`, `qtde`, `valorUnit`, `valorTotal`, `observaca
 (3, 1, '250', '250', 'Conserto da maquina x', 3, 1),
 (4, 1, '100', '100', 'Reparo', 8, 1),
 (5, 1, '99', '99', 'ooooo', 10, 1),
-(6, 1, '50', '50', 'pppppp', 9, 1);
+(6, 1, '50', '50', 'pppppp', 9, 1),
+(7, 1, '11', '11', 'kkkkkkkkkk kkkkkkk kkkkkkkkkkkkkkkkkk kkkkkkkkkkk kkkkkkkkkkk kkkkkkkkk kkkkkkkk kkkkkkk kkkkkkkk kkkkkkkkkkkk kkkkkkkkk kkkkkk kkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkk kkkkkk  mmmmmmmmmmmmm mmmmmmmmmmmmm', 9, 1),
+(8, 11, '1', '11', 'jjfhsihfsiufhsofhs\r\nfdsnfshfuisdhfdos\r\nfnsdjknflsdfhsdofi\r\nklfndsçkfnsdçklfs', 9, 1);
 
 -- --------------------------------------------------------
 
@@ -170,7 +159,7 @@ INSERT INTO `ordemdeservico` (`IDOS`, `nomeCLI`, `dataOS`, `horarioOS`, `valorTo
 (4, '', '2022-09-17', '13:59:00', 350, 1, 2, 'Reparo na placa mãe', ''),
 (6, '', '2022-10-12', '11:00:00', 1000, 1, 2, 'TEste', ''),
 (7, '', '2022-10-12', '11:00:00', 1000, 1, 2, 'TEste', ''),
-(8, '', '2022-11-03', '20:13:00', 252, 4, 13, 'Teeste', 'Fechado'),
+(8, '', '2022-11-03', '20:13:00', 253, 4, 13, 'Teeste', 'Fechado'),
 (9, '', '2022-11-08', '22:45:00', 2563, 1, 13, 'TEste', 'Aberto'),
 (10, '', '2022-11-04', '22:18:00', 50, 6, 13, 'LALLALALA', 'Aberto');
 
@@ -192,7 +181,7 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`IDPRO`, `nome`, `valor`, `descricao`) VALUES
-(1, 'Placa de vídeo', '1000.00', ' gtx 1060'),
+(1, 'Placa de vídeo', '1000.00', ' andjksahduisagdiuasdhsoaidhusaio dopasihdpsaiugdoiyasgd asudaoiydgasiodgasoidhsa pdiuabgoydigsaoydgsaoidba pgdboyaigdosaygdsalb '),
 (2, 'Placa de vídeo', '1000.00', 'Placa amd 570'),
 (3, 'Placa de mãe', '1500.00', 'placa da marca azus');
 
@@ -240,7 +229,11 @@ INSERT INTO `usuario` (`id`, `email`, `senha`, `tipo_usuario`, `id_usuario`) VAL
 (4, 'adm@adm.com', '123', 'funcionario', 13),
 (5, 'kaua@email.com', '123', 'cliente', 4),
 (6, 'valmir@email.com', '123', 'cliente', 5),
-(7, 'fravio@email.com', '123', 'cliente', 6);
+(7, 'fravio@email.com', '123', 'cliente', 6),
+(8, 'livia@email.com', '123', 'cliente', 7),
+(9, 'gilvan@emai.com', '123', '14', 14),
+(10, 'artur@email.com', '123', 'cliente', 8),
+(11, 'lucasA@email.com', '123', '15', 15);
 
 --
 -- Índices para tabelas despejadas
@@ -251,13 +244,6 @@ INSERT INTO `usuario` (`id`, `email`, `senha`, `tipo_usuario`, `id_usuario`) VAL
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`IDCLI`);
-
---
--- Índices para tabela `empresa`
---
-ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`IDEMP`),
-  ADD KEY `IDOS_FK` (`IDOS_FK`);
 
 --
 -- Índices para tabela `funcionario`
@@ -313,19 +299,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de tabela `empresa`
---
-ALTER TABLE `empresa`
-  MODIFY `IDEMP` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDCLI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `IDFUN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `IDFUN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `itemproduto`
@@ -337,7 +317,7 @@ ALTER TABLE `itemproduto`
 -- AUTO_INCREMENT de tabela `itemservico`
 --
 ALTER TABLE `itemservico`
-  MODIFY `IDIS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `IDIS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `ordemdeservico`
@@ -361,17 +341,11 @@ ALTER TABLE `servico`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restrições para despejos de tabelas
 --
-
---
--- Limitadores para a tabela `empresa`
---
-ALTER TABLE `empresa`
-  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`IDOS_FK`) REFERENCES `ordemdeservico` (`IDOS`);
 
 --
 -- Limitadores para a tabela `itemproduto`

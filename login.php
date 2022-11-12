@@ -34,6 +34,13 @@
                                             <div class="text-end">
                                                 <input type="submit" class="btn btn-primary" value="Entrar">
                                             </div>
+
+                                            <?php
+                                                if(!empty($_GET['mensagem'])){ ?>
+                                                    <div class="alert alert-danger">
+                                                        <?= $_GET['mensagem'] ?>
+                                                    </div>
+                                                <?php } ?>
                                         </form>
                                     </div>
                                 </div>
