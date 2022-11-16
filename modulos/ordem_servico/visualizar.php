@@ -90,120 +90,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <a <?php if(podeMostrar(['funcionario'])){ ?>
-                        href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary" >Editar
-                    </a>
-                        <?php } ?>
-                        
-                    <a <?php if(podeMostrar(['funcionario'])){ ?>
-                    href="status.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-warning">Fechar
-                    </a>
-                        <?php } ?>
-
-                    <a <?php if(podeMostrar(['funcionario'])){ ?>
-                    onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">Apagar
-                    </a>
-                        <?php } ?>
-                    
-                    <hr>
-                    
-
-                    <!-- Formulário para adicionar serviço -->
-                    <?php if(podeMostrar(['funcionario']) && $ordem_servico['status'] == 'Aberto'){ ?>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6">
-                                <form action="salvar_item_servico.php" method="POST" class="text-dark bg-opacity-10 p-3 rounded" style="background-color: #F0FFFF;">
-                                    <p class="lead">Adicionar Serviço</p>
-
-                                    <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
-                                    
-                                    <div class="mb-3">
-                                        <label for="servico">Serviços:</label>
-                                        
-                                        <select class="form-control border-info" name="servico_id" id="servico_id">
-                                            <?php
-                                                foreach($servicos as $servico)
-                                                {
-                                                    echo "<option value='{$servico['IDSER']}'> {$servico['nome']} </option>";
-                                                }
-                                                ?>    
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label for="qtde">Quantidade:</label>
-                                        <input type="number" name="qtde" class="form-control border-info" placeholder="00.00" step="0.01" required>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label for="valor">Valor:</label>
-                                        <input type="number" name="valor" class="form-control border-info" placeholder="00.00" step="0.01" required>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label for="observacao">Descrição do Serviço:</label>
-                                        <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
-                                    </div>
-                                    
-                                    <div class="text-end">
-                                        <input class="btn btn-success" type="submit" name="submit" value="Salvar">
-                                    </div>
-                                </form>
-                            </div>
-                                
-                            <!-- Formulário para adicionar produto -->
-                                <div class="col-6">
-                                    <form action="salvar_item_produto.php" method="POST" class="text-dark bg-opacity-10 p-3 rounded" style="background-color: #F0FFFF;">
-                                        <p class="lead">Adicionar Produto</p>
-
-                                            <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
-                                            
-                                            <div class="mb-3">
-                                                <label for="produto">Produtos:</label>
-
-                                                <select class="form-control border-info" name="produto_id" id="produto_id">
-                                                    <?php
-                                                        foreach($produtos as $produto)
-                                                        {
-                                                            echo "<option value='{$produto['IDPRO']}'> {$produto['nome']} </option>";
-                                                        }
-                                                    ?>    
-                                                </select>
-                                            </div>
-                                        
-                                        <div class="mb-3">
-                                            <label for="qtde">Quantidade:</label>
-                                            <input type="number" name="qtde" class="form-control border-info" placeholder="00.00" step="0.01" required>
-                                        </div>
-                                        
-                                        <div class="mb-3">
-                                            <label for="valor">Valor:</label>
-                                            <input type="number" name="valor" class="form-control border-info" placeholder="00.00" step="0.01" required>
-                                        </div>
-                                        
-                                        <div class="mb-3">
-                                            <label for="observacao">Descrição do Produto:</label>
-                                            <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
-                                        </div>
-                                        
-                                        <div class="text-end">
-                                            <input class="btn btn-success" type="submit" name="submit" value="Salvar">
-                                        </div>
-                                    </form>
-                                </div>   
-                            </div>
-                        </div>
-                        <?php } ?>
-                    
 
                         <?php
                             $sql = "SELECT * FROM itemservico JOIN servico ON (itemservico.IDSER_FK = servico.IDSER) WHERE IDOS_FK = {$ordem_servico['IDOS']}";
                             $servicos = retornaDados($sql);
                         ?>
-                    <div class="text-center">
+                        <div class="text-center">
                         <h1><b>Serviços e Produtos  da ordem</b></h1> 
                     </div>
                     <br>
@@ -272,6 +164,114 @@
 
                             </div>   
                      </div>
+                    </div>
+                    
+                    <a <?php if(podeMostrar(['funcionario'])){ ?>
+                        href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary" >Editar
+                    </a>
+                        <?php } ?>
+                        
+                    <a <?php if(podeMostrar(['funcionario'])){ ?>
+                    href="status.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-warning">Fechar
+                    </a>
+                        <?php } ?>
+
+                    <a <?php if(podeMostrar(['funcionario'])){ ?>
+                    onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">Apagar
+                    </a>
+                        <?php } ?>
+                    
+                    <hr>
+                    
+
+                    <!-- Formulário para adicionar serviço -->
+                    <?php if(podeMostrar(['funcionario']) && $ordem_servico['status'] == 'Aberto'){ ?>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <form action="salvar_item_servico.php" method="POST" class="text-dark bg-opacity-10 p-3 rounded" style="background-color: #86ECFA;">
+                                    <p class="lead fw-bold">Adicionar Serviço</p>
+
+                                    <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
+                                    
+                                    <div class="mb-3">
+                                        <label for="servico">Serviços:</label>
+                                        
+                                        <select class="form-control border-info" name="servico_id" id="servico_id">
+                                            <?php
+                                                foreach($servicos as $servico)
+                                                {
+                                                    echo "<option value='{$servico['IDSER']}'> {$servico['nome']} </option>";
+                                                }
+                                                ?>    
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="qtde">Quantidade:</label>
+                                        <input type="number" name="qtde" class="form-control border-info" placeholder="00.00" step="0.01" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="valor">Valor:</label>
+                                        <input type="number" name="valor" class="form-control border-info" placeholder="00.00" step="0.01" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="observacao">Descrição do Serviço:</label>
+                                        <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
+                                    </div>
+                                    
+                                    <div class="text-end">
+                                        <input class="btn btn-success" type="submit" name="submit" value="Salvar">
+                                    </div>
+                                </form>
+                            </div>
+                                
+                            <!-- Formulário para adicionar produto -->
+                                <div class="col-6">
+                                    <form action="salvar_item_produto.php" method="POST" class="text-dark bg-opacity-10 p-3 rounded" style="background-color: #86ECFA;">
+                                        <p class="lead fw-bold">Adicionar Produto</p>
+
+                                            <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
+                                            
+                                            <div class="mb-3">
+                                                <label for="produto">Produtos:</label>
+
+                                                <select class="form-control border-info" name="produto_id" id="produto_id">
+                                                    <?php
+                                                        foreach($produtos as $produto)
+                                                        {
+                                                            echo "<option value='{$produto['IDPRO']}'> {$produto['nome']} </option>";
+                                                        }
+                                                    ?>    
+                                                </select>
+                                            </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="qtde">Quantidade:</label>
+                                            <input type="number" name="qtde" class="form-control border-info" placeholder="00.00" step="0.01" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="valor">Valor:</label>
+                                            <input type="number" name="valor" class="form-control border-info" placeholder="00.00" step="0.01" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="observacao">Descrição do Produto:</label>
+                                            <textarea name="observacao" class="form-control border-info"  rows="5" required></textarea>
+                                        </div>
+                                        
+                                        <div class="text-end">
+                                            <input class="btn btn-success" type="submit" name="submit" value="Salvar">
+                                        </div>
+                                    </form>
+                                </div>   
+                            </div>
+                        </div>
+                        <?php } ?>
+
 
                 </main>
 

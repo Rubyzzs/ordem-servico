@@ -23,7 +23,7 @@ $cliente = retornaDado($sql);
     <div id="layoutSidenav">
         <?php include_once path('template/sidebar.php') ?>
         
-        <div id="layoutSidenav_content">
+        <div id="layoutSidenav_content" style="background-color: #F0F8FF;">
             <main class="container-fluid">
                     <?php include_once path('template/mensagem.php') ?>
                     <div class="container rounded mt-3 mb-5" style="background-color: #F0F8FF;">
@@ -43,6 +43,7 @@ $cliente = retornaDado($sql);
                                         <div class="row mt-3">
                                         <div class="col-md-12"><label class="labels">Nome completo:</label><p class="form-control"><?= $cliente['nomeCLI'] ?></p></div>
                                         <div class="col-md-12"><label class="labels">Telefone:</label><p class="form-control"><?= $cliente['telCLI'] ?></p></div>
+                                        <div class="col-md-12"><label class="labels">Cpf:</label><p class="form-control"><?= $cliente['cpfCLI'] ?></p></div>
                                         <div class="col-md-12"><label class="labels">Endereço:</label><p class="form-control"><?= $cliente['endCLI'] ?></p></div>
                                         <div class="col-md-12"><label class="labels">Email:</label><p class="form-control"><?= $cliente['emailCLI'] ?></p></div>
                                     </div>

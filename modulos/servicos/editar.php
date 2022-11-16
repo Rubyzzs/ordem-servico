@@ -22,7 +22,7 @@
         <div id="layoutSidenav">
             <?php include_once path('template/sidebar.php') ?>
 
-            <div id="layoutSidenav_content">
+            <div id="layoutSidenav_content" style="background-color: #F0F8FF;">
                 <main class="container">
                     <div class="card-body p-3 mb-2 mt-3 rounded" style="background-color: #F0F8FF;">
                     <h1 class="display-1 text-center">Alterar dados do Serviço</h1>

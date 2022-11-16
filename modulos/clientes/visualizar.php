@@ -23,7 +23,7 @@ $cliente = retornaDado($sql);
     <div id="layoutSidenav">
         <?php include_once path('template/sidebar.php') ?>
 
-        <div id="layoutSidenav_content">
+        <div id="layoutSidenav_content" style="background-color: #F0F8FF;">
             <main class="container">
                 <?php include_once path('template/mensagem.php') ?>
 

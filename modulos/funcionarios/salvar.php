@@ -36,9 +36,6 @@
         ':tipo_usuario' => $id
     ]);
 
-    // Pega o ID do usuário cadastrado
-    $id = $conexaoBanco->lastInsertId();
-
     if($id > 0){
         // funcionario cadastrado com sucessso
         header("Location: visualizar.php?id=$id");

@@ -25,7 +25,7 @@
         <div id="layoutSidenav">
             <?php include_once path('template/sidebar.php') ?>
 
-            <div id="layoutSidenav_content">
+            <div id="layoutSidenav_content" style="background-color: #F0F8FF;">
                 <main class="container">
                     <div class="container rounded mt-3 mb-5" style="background-color: #F0F8FF;">
                         <div class="row">
