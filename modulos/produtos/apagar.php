@@ -10,13 +10,13 @@
     }
 
     // Busca os dados do banco
-    $sql = "DELETE FROM cliente WHERE IDCLI = :id";
+    $sql = "DELETE FROM produto WHERE IDPRO = :id";
     $prepara = $conexaoBanco->prepare($sql);
 
     $prepara->execute([
         ':id' => $id
     ]);
 
-    $msg = "Cliente apagado com sucesso!";
+    $msg = "Produto apagado com sucesso!";
     header("Location: index.php?msg=$msg");
 ?>
