@@ -1,5 +1,5 @@
 <div id="layoutSidenav_nav">
-    <nav class="sb-sidenav bg-primary accordion sb-sidenav" id="sidenavAccordion">
+    <nav class="sb-sidenav bg-dark accordion sb-sidenav" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading"></div>
@@ -8,12 +8,12 @@
 
                     <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
                         <?php if(podeMostrar(['funcionario'])){ ?> 
-                            <div class="sb-nav-link-icon text-white"><i class="fa-solid fa-users"></i></div>
+                            <div class="sb-nav-link-icon text-primary"><i class="fa-solid fa-users"></i></div>
                             Clientes
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         <?php } ?>
                         <?php if(podeMostrar(['cliente'])){ ?>
-                            <div class="sb-nav-link-icon text-white"><i class="fa-solid fa-users"></i></div>
+                            <div class="sb-nav-link-icon text-primary"><i class="fa-solid fa-users"></i></div>
                             Perfil
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         <?php } ?>
@@ -32,7 +32,7 @@
                     </div>
                         <!-- menu de funcionario -->
                         <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseFuncionario" aria-expanded="false" aria-controls="collapseClientes">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user-gear"></i></div>
+                            <div class="sb-nav-link-icon text-primary"><i class="fa-solid fa-user-gear"></i></div>
                             Funcionários
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -52,7 +52,7 @@
 
                 <!-- Menu de produtos  -->
                 <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProdutos" aria-expanded="false" aria-controls="collapseClientes">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-box-open"></i></div>
+                    <div class="sb-nav-link-icon text-primary"><i class="fa-solid fa-box-open"></i></div>
                         Produtos
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -70,7 +70,7 @@
                 </div>
                 <!-- Menu de serviços  -->
                 <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseServicos" aria-expanded="false" aria-controls="collapseServicos">
-                    <div class="sb-nav-link-icon text-white"><i class="fa-solid fa-gears"></i></div>
+                    <div class="sb-nav-link-icon text-primary"><i class="fa-solid fa-gears"></i></div>
                         Serviços
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -88,7 +88,7 @@
                 </div>
                 <!-- Menu de ordens de serviços  -->
                 <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOrdens" aria-expanded="false" aria-controls="collapseClientes">
-                    <div class="sb-nav-link-icon text-white"><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="sb-nav-link-icon text-primary"><i class="fa-solid fa-briefcase"></i></div>
                         Ordens
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>

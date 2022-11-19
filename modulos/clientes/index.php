@@ -20,9 +20,9 @@
 
                     <h1 class="text-center display-3">Lista de Clientes</h1>
 
-                    <table class="table table-dark table-hover">
+                    <table class="table table-bordered table-dark">
                         <thead>
-                            <tr>
+                        <tr style="text-align:center">
                                 <th>#</th>
                                 <th>Nome</th>
                                 <th>Telefone</th>
@@ -33,11 +33,11 @@
                         <tbody>
                             <?php foreach($clientes as $cliente){ ?>
                                 <tr>
-                                    <td><?= $cliente['IDCLI'] ?></td>
+                                    <td style="text-align:center"><b><?= $cliente['IDCLI'] ?></b></td>
                                     <td><?= $cliente['nomeCLI'] ?></td>
                                     <td><?= $cliente['telCLI'] ?></td>
                                     <td><?= $cliente['emailCLI'] ?></td>
-                                    <td>
+                                    <td style="text-align:center">
                                         <a class="btn btn-secondary btn-sm" href="visualizar.php?id=<?= $cliente['IDCLI'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>

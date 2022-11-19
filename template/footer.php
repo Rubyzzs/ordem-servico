@@ -1,7 +1,7 @@
 <footer class="py-4 bg-light mt-auto">
     <div class="container-fluid px-4">
         <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">CMZ & Patrícia Pires &copy;  2022
+            <div class="text-muted">CZ & Patrícia Pires &copy;  2022
                 <br>
                 Etec Araçatuba
             </div>

@@ -18,7 +18,7 @@
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
 
-                    <h1 class="text-center display-3">Lista de serviços</h1>
+                    <h1 class="text-center display-3">Lista de Serviços</h1>
 
                     <table class="table table-bordered table-dark">
                         <thead>
