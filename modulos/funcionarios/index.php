@@ -20,9 +20,9 @@
 
                     <h1 class="text-center display-3">Lista de Funcionários</h1>
 
-                    <table class="table table-dark table-hover">
+                    <table class="table table-bordered table-dark">
                         <thead>
-                            <tr>
+                            <tr style="text-align:center">
                                 <th>#</th>
                                 <th>Nome</th>
                                 <th>Telefone</th>
@@ -33,11 +33,11 @@
                         <tbody>
                             <?php foreach($funcionarios as $funcionario){ ?>
                                 <tr>
-                                    <td><?= $funcionario['IDFUN'] ?></td>
+                                    <td style="text-align:center"><b><?= $funcionario['IDFUN'] ?></b></td>
                                     <td><?= $funcionario['nomeFUN'] ?></td>
                                     <td><?= $funcionario['telFUN'] ?></td>
                                     <td><?= $funcionario['emailFUN'] ?></td>
-                                    <td>
+                                    <td style="text-align:center">
                                         <a class="btn btn-secondary btn-sm" href="visualizar.php?id=<?= $funcionario['IDFUN'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>

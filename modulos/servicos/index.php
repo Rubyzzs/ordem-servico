@@ -18,11 +18,11 @@
                 <main class="container">
                     <?php include_once path('template/mensagem.php') ?>
 
-                    <h1 class="text-center display-3">Lista de servicos</h1>
+                    <h1 class="text-center display-3">Lista de serviços</h1>
 
-                    <table class="table table-dark table-hover">
+                    <table class="table table-bordered table-dark">
                         <thead>
-                            <tr>
+                        <tr style="text-align:center">
                                 <th>#</th>
                                 <th>Nome</th>
                                 <th>Valor</th>
@@ -32,10 +32,10 @@
                         <tbody>
                             <?php foreach($servicos as $servico){ ?>
                                 <tr>
-                                    <td><?= $servico['IDSER'] ?></td>
+                                    <td style="text-align:center"><b><?= $servico['IDSER'] ?></b></td>
                                     <td><?= $servico['nome'] ?></td>
                                     <td><?= $servico['valor'] ?></td>
-                                    <td>
+                                    <td style="text-align:center">
                                         <a class="btn btn-secondary btn-sm" href="visualizar.php?id=<?= $servico['IDSER'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>

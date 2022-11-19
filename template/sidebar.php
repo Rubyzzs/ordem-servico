@@ -68,7 +68,24 @@
                         <?php } ?>
                     </nav>
                 </div>
+                <!-- Menu de serviços  -->
+                <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseServicos" aria-expanded="false" aria-controls="collapseServicos">
+                    <div class="sb-nav-link-icon text-white"><i class="fa-solid fa-gears"></i></div>
+                        Serviços
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
 
+                <div class="collapse" id="collapseServicos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <?php if(podeMostrar(['funcionario'])){ ?>
+                            <a class="nav-link text-white" href="<?= links('modulos/servicos/cadastrar.php') ?>">Novo Serviço</a>
+                            <a class="nav-link text-white" href="<?= links('modulos/servicos/index.php') ?>">Lista</a>
+                        <?php } ?>
+                        <?php if(podeMostrar(['cliente'])){ ?>
+                            <a class="nav-link text-white" href="<?= links('modulos/servicos/visualizar.php') ?>">Lista</a>
+                        <?php } ?>
+                    </nav>
+                </div>
                 <!-- Menu de ordens de serviços  -->
                 <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOrdens" aria-expanded="false" aria-controls="collapseClientes">
                     <div class="sb-nav-link-icon text-white"><i class="fa-solid fa-briefcase"></i></div>
@@ -90,24 +107,7 @@
                     </nav>
                 </div>
 
-                <!-- Menu de serviços  -->
-                <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseServicos" aria-expanded="false" aria-controls="collapseServicos">
-                    <div class="sb-nav-link-icon text-white"><i class="fa-solid fa-gears"></i></div>
-                        Serviços
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
 
-                <div class="collapse" id="collapseServicos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <?php if(podeMostrar(['funcionario'])){ ?>
-                            <a class="nav-link text-white" href="<?= links('modulos/servicos/cadastrar.php') ?>">Novo Serviço</a>
-                            <a class="nav-link text-white" href="<?= links('modulos/servicos/index.php') ?>">Lista</a>
-                        <?php } ?>
-                        <?php if(podeMostrar(['cliente'])){ ?>
-                            <a class="nav-link text-white" href="<?= links('modulos/servicos/visualizar.php') ?>">Lista</a>
-                        <?php } ?>
-                    </nav>
-                </div>
             </div>
         </div>
         <div class="sb-sidenav-footer">
