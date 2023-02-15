@@ -18,7 +18,7 @@
             <div id="layoutSidenav_content" style="background-color: #F0F8FF;">
                 <main class="container">
                     <div class="card-body p-3 mb-2 mt-3 rounded">
-                    <h1 class="display-1 text-center">Cadastrar de Funcionário</h1>
+                    <h1 class="display-1 text-center">Cadastrar Funcionário</h1>
                         <form action="salvar.php" method="POST">
                             <div class="mb-3">
                                 <label for="nome">Nome Completo:</label>

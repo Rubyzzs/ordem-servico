@@ -61,7 +61,7 @@ $clientes = retornaDados($sql);
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="estado">Estado:</label>
-                                    <input type="tex" name="estado" class="form-control" placeholder="xxxxx@xxxx" required>
+                                    <input type="tex" name="estado" class="form-control" required>
                                 </div>
                             </div>
                                 

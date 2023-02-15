@@ -93,7 +93,7 @@
 
                         <?php
                             $sql = "SELECT * FROM itemservico JOIN servico ON (itemservico.IDSER_FK = servico.IDSER) WHERE IDOS_FK = {$ordem_servico['IDOS']}";
-                            $servicos = retornaDados($sql);
+                            $itensServico = retornaDados($sql);
                         ?>
                         <div class="text-center">
                         <h1><b>Serviços e Produtos  da ordem</b></h1> 
@@ -114,7 +114,7 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                                foreach($servicos as $servico) { ?>
+                                                foreach($itensServico as $servico) { ?>
                                                     <tr>
                                                         <td><?= $servico['nome'] ?></td>
                                                         <td><?= $servico['qtde'] ?></td>
@@ -130,7 +130,7 @@
 
                                 <?php
                                     $sql = "SELECT * FROM itemproduto JOIN produto ON (itemproduto.IDPRO_FK = produto.IDPRO) WHERE IDOS_FK = {$ordem_servico['IDOS']}";
-                                    $produtos = retornaDados($sql);
+                                    $itensProdutos = retornaDados($sql);
                                 ?>
                                 
                                 <div class="col">
@@ -146,7 +146,7 @@
                                             </thead>
                                                 <tbody>
                                                     <?php
-                                                        foreach($produtos as $produto) { ?>
+                                                        foreach($itensProdutos as $produto) { ?>
                                                             <tr>
                                                                 <td><?= $produto['nome'] ?></td>
                                                                 <td><?= $produto['qtde'] ?></td>
@@ -165,21 +165,26 @@
                             </div>   
                      </div>
                     </div>
-                    
-                    <a <?php if(podeMostrar(['funcionario'])){ ?>
-                        href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary" >Editar
-                    </a>
-                        <?php } ?>
-                        
-                    <a <?php if(podeMostrar(['funcionario'])){ ?>
-                    href="status.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-warning">Fechar
-                    </a>
-                        <?php } ?>
 
-                    <a <?php if(podeMostrar(['funcionario'])){ ?>
-                    onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">Apagar
-                    </a>
-                        <?php } ?>
+                    <?php if(podeMostrar(['funcionario'])){ ?>
+                        <a href="editar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-primary" >
+                            Editar
+                        </a>
+                    <?php } ?>
+                        
+                    <?php if(podeMostrar(['funcionario'])){ ?>
+                        <a 
+                        href="status.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-warning">
+                            Fechar
+                        </a>
+                    <?php } ?>
+                    
+                    <?php if(podeMostrar(['funcionario'])){ ?>
+                        <a 
+                        onclick="return confirm('Deseja realmente apagar o ordem_servico?')" href="apagar.php?id=<?= $ordem_servico['IDOS'] ?>" class="btn btn-danger">
+                        Apagar
+                        </a>
+                    <?php } ?>
                     
                     <hr>
                     

@@ -33,7 +33,7 @@
         ':email'  => $email,
         ':senha'  => $senha,
         ':id_usuario' => $id,
-        ':tipo_usuario' => $id
+        ':tipo_usuario' => 'funcionario'
     ]);
 
     if($id > 0){
