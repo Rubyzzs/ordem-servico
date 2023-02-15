@@ -105,11 +105,11 @@
                                     <table class="table table-dark table-bordered">
                                         <thead>
                                                 <tr>
-                                                    <td>Serviço</td>
-                                                    <td>Quantidade</td>
-                                                    <td>Valor</td>
-                                                    <td>Total</td>
-                                                    <td>Descrição</td>
+                                                    <td><b>Serviço</b></td>
+                                                    <td><b>Quantidade</b></td>
+                                                    <td><b>Valor</b></td>
+                                                    <td><b>Total</b></td>
+                                                    <td><b>Descrição</b></td>
                                                 </tr>
                                         </thead>
                                         <tbody>
@@ -120,7 +120,7 @@
                                                         <td><?= $servico['qtde'] ?></td>
                                                         <td>R$ <?= number_format($servico['valorUnit'], 2, ',', '.') ?></td>
                                                         <td><?= $servico['valorTotal'] ?></td>
-                                                        <td><?= $servico['observacao'] ?></td>
+                                                        <td style='text-align: justify;'><?= $servico['observacao'] ?></td>
                                                     </tr>
                                             <?php } ?>
 
@@ -136,23 +136,23 @@
                                 <div class="col">
                                         <table class="table table-dark table-bordered">
                                             <thead>
-                                                <tr>
-                                                    <td>Produto</td>
-                                                    <td>Quantidade</td>
-                                                    <td>Valor</td>
-                                                    <td>Total</td>
-                                                    <td>Observação</td>
+                                                <tr style="text-align:center">
+                                                    <td><b>Produto</b></td>
+                                                    <td><b>Quantidade</b></td>
+                                                    <td><b>Valor</b></td>
+                                                    <td><b>Total</b></td>
+                                                    <td><b>Observação</b></td>
                                                 </tr>
                                             </thead>
                                                 <tbody>
                                                     <?php
                                                         foreach($itensProdutos as $produto) { ?>
                                                             <tr>
-                                                                <td><?= $produto['nome'] ?></td>
+                                                                <td  style="text-align:center"><?= $produto['nome'] ?></td>
                                                                 <td><?= $produto['qtde'] ?></td>
                                                                 <td><?= $produto['valorUnit'] ?></td>
                                                                 <td><?= $produto['valorTotal'] ?></td>
-                                                                <td><?= $produto['observacao'] ?></td>
+                                                                <td style='text-align: justify;'><?= $produto['observacao'] ?></td>
                                                             </tr>
                                                     <?php } ?>
 
@@ -194,7 +194,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-6">
-                                <form action="salvar_item_servico.php" method="POST" class="text-dark bg-opacity-10 p-3 rounded" style="background-color: #86ECFA;">
+                                <form action="salvar_item_servico.php" method="POST" class="text-dark bg-opacity-10 p-3 rounded" style="background-color: #90baff;">
                                     <p class="lead fw-bold">Adicionar Serviço</p>
 
                                     <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">
@@ -235,7 +235,7 @@
                                 
                             <!-- Formulário para adicionar produto -->
                                 <div class="col-6">
-                                    <form action="salvar_item_produto.php" method="POST" class="text-dark bg-opacity-10 p-3 rounded" style="background-color: #86ECFA;">
+                                    <form action="salvar_item_produto.php" method="POST" class="text-dark bg-opacity-10 p-3 rounded" style="background-color: #90baff;">
                                         <p class="lead fw-bold">Adicionar Produto</p>
 
                                             <input type="hidden" value="<?= $ordem_servico['IDOS'] ?>" name="IDOS">

@@ -25,10 +25,10 @@
 
                     <h1 class="text-center display-3">Lista de Ordens</h1>
 
-                    <table class="table table-dark table-hover table-bordered">
+                    <table class="table table-bordered table-dark">
                         <thead>
-                            <tr>
-                                <th>#</th>
+                        <tr style="text-align:center">
+                                <th>ID</th>
                                 <th>Data</th>
                                 <th>Hora</th>
                                 <th>Status da ordem</th>
@@ -38,11 +38,11 @@
                         <tbody>
                             <?php foreach($ordens as $ordem_servico){ ?>
                                 <tr>
-                                    <td><?= $ordem_servico['IDOS'] ?></td>
+                                    <td  style="text-align:center"><b><?= $ordem_servico['IDOS'] ?></b></td>
                                     <td><?= $ordem_servico['dataOS'] ?></td>
                                     <td><?= $ordem_servico['horarioOS'] ?></td>
                                     <td><?= $ordem_servico['status'] ?></td>
-                                    <td>
+                                    <td  style="text-align:center">
                                         <a class="btn btn-secondary btn-sm" href="visualizar.php?id=<?= $ordem_servico['IDOS'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>

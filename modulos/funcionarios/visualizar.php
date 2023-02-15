@@ -32,7 +32,7 @@ $funcionario = retornaDado($sql);
                 <div class="row justify-content-center">
                     <div class="col-4">
                         <div class="card w-100">
-                            <div class="card-body rounded" style="background-color: #008B8B;">
+                            <div class="card-body rounded" style="background-color: #005353;">
                                 <h1 class="card-title text-center text-white"><?= $funcionario['nomeFUN'] ?></h1>
                                 <p class="card-text text-white"><b>Fone: </b><?= $funcionario['telFUN'] ?></p>
                                 <p class="card-text text-white"><b>Email: </b><?= $funcionario['emailFUN'] ?></p>

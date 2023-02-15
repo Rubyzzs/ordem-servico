@@ -20,28 +20,34 @@
 
                     <h1 class="text-center display-3">Lista de produtos</h1>
 
-                    <table class="table table-dark table-hover">
+                    <table class="table table-bordered table-dark">
+                   
                         <thead>
-                            <tr>
+                
+                            <tr style="text-align:center">
+                            
                                 <th>#</th>
                                 <th>Nome</th>
                                 <th>Valor</th>
                                 <th></th>
+                                
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach($prudutos as $produto){ ?>
                                 <tr>
-                                    <td><?= $produto['IDPRO'] ?></td>
+                                    <td style="text-align:center"><b><?= $produto['IDPRO'] ?></b></td>
                                     <td><?= $produto['nome'] ?></td>
                                     <td>R$ <?= number_format($produto['valor'], 2, ',', '.') ?></td>
-                                    <td>
+                                    <td style="text-align:center">
                                         <a class="btn btn-secondary btn-sm" href="visualizar.php?id=<?= $produto['IDPRO'] ?>"><i class="fa-regular fa-eye"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>
                         </tbody>
                     </table>
+                    </table>
+                    </thead>
                 </main>
 
                 <?php include_once path('template/footer.php') ?>

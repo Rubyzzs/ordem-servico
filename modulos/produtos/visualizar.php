@@ -26,25 +26,33 @@ $produto = retornaDado($sql);
         <div id="layoutSidenav_content">
             <main class="container">
                 <?php include_once path('template/mensagem.php') ?>
-                <div>
-                    <div>
-                        <div class="card mb-4" style="max-width: 100rem;">
-                            <div class="card-header text-center">Detalhes do produto</div>
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $produto['nome'] ?></h5>
-                                <p class="card-text"><b>Valor: </b> R$ <?= number_format($produto['valor'], 2, ',', '.') ?></p>
-                                <p class="card-text"><?= $produto['descricao'] ?></p>
+                    <h1 class="diplay-1 text-center">Sobre o Produto</h1>
+                <hr>
+                <hr>
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <div class="card w-100">
+                            <div class="card-body rounded" style="background-color: #005353;">
+                                <p class="card-text text-white"><b>Nome: </b><?= $produto['nome'] ?></p>
+                                <p class="card-text text-white"><b>Valor:</b> R$<?= $produto['valor'] ?></p>
+                                <p class="card-text text-white"><b>Descrição: </b><?= $produto['descricao'] ?></p>
                             </div>
                         </div>
                     </div>
+                </div>
+                <hr>
+                 <hr>
 
-                    <hr>
-                    <a  <?php if (podeMostrar(['funcionario'])) { ?> href="editar.php?id=<?= $produto['IDPRO'] ?>" class="btn btn-warning">Editar
+                        <div class="text-end">
+                    <a  <?php if (podeMostrar(['funcionario'])) { ?> href="editar.php?id=<?= $produto['IDPRO'] ?>" class="btn btn-primary">Alterar
                     </a>
                         <?php } ?>
-                    <a  <?php if (podeMostrar(['funcionario'])) { ?> onclick="return confirm('Deseja realmente apagar o produto?')" href="apagar.php?id=<?= $produto['IDPRO'] ?>" class="btn btn-danger">Apagar
+
+                    <a  <?php if (podeMostrar(['funcionario'])) { ?> 
+                        onclick="return confirm('Deseja realmente apagar o Produto?')" href="apagar.php?id=<?= $produto['IDPRO'] ?>" class="btn btn-danger">Apagar
                     </a>
                         <?php } ?>
+                </div>
             </main>
 
             <?php include_once path('template/footer.php') ?>
